@@ -1,6 +1,6 @@
 # **My Personal Portfolio Website**
 
-Here is a clean and responsive personal portfolio website built using **HTML5**, **CSS3**, **JavaScript**, and **Tailwind CSS**.
+I built this clean and responsive personal portfolio website using **HTML5**, **CSS3**, **JavaScript**, and **Tailwind CSS**.
 This site serves as a central place to showcase my projects, technical skills, experience, and contact information.
 
 ---
