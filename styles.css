@@ -190,21 +190,21 @@ html {
 }
 
 .star-small {
-    width: 8px;
-    height: 8px;
-    opacity: 0.8;
+    width: 0.8px;
+    height: 0.8px;
+    opacity: 0.7;
 }
 
 .star-medium {
-    width: 12px;
-    height: 12px;
-    opacity: 0.9;
+    width: 1.2px;
+    height: 1.2px;
+    opacity: 0.8;
 }
 
 .star-large {
-    width: 16px;
-    height: 16px;
-    opacity: 1;
+    width: 1.8px;
+    height: 1.8px;
+    opacity: 0.9;
 }
 
 @keyframes float {
