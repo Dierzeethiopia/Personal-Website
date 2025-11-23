@@ -5,6 +5,60 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+/* Gradient Border Effect */
+.border-gradient-to-r {
+    position: relative;
+    border-image: linear-gradient(to right, var(--tw-gradient-stops)) 1;
+}
+
+section[class*="border-gradient-to-r"] {
+    position: relative;
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    background-clip: padding-box;
+}
+
+section[class*="border-gradient-to-r"]::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    z-index: -1;
+}
+
+section[class*="border-gradient-to-r"]::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    z-index: -1;
+}
+
+/* Specific gradient borders for each section */
+#about::before, #about::after {
+    background: linear-gradient(to right, #3b82f6, #a855f7, #ec4899);
+}
+
+#projects::before, #projects::after {
+    background: linear-gradient(to right, #6366f1, #3b82f6, #06b6d4);
+}
+
+#experience::before, #experience::after {
+    background: linear-gradient(to right, #a855f7, #ec4899, #ef4444);
+}
+
+section[class*="Leadership"]::before, section[class*="Leadership"]::after {
+    background: linear-gradient(to right, #10b981, #14b8a6, #3b82f6);
+}
+
+#contact::before, #contact::after {
+    background: linear-gradient(to right, #ec4899, #a855f7, #6366f1);
+}
+
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
