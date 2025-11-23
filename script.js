@@ -198,7 +198,9 @@ function initParticles() {
     
     // Create moving stars
     function createStars() {
-        const starCount = 250; // Increased number of stars
+        const starCount = 300; // Increased number of stars
+        
+        console.log('Creating', starCount, 'stars...');
         
         for (let i = 0; i < starCount; i++) {
             const star = document.createElement('div');
@@ -208,11 +210,11 @@ function initParticles() {
             const sizeClass = ['star-small', 'star-medium', 'star-large'][Math.floor(Math.random() * 3)];
             star.classList.add(sizeClass);
             
-            // Random color - white or fire-yellow
-            const colors = ['#ffffff', '#ffeb3b', '#ffd700', '#ffa500', '#fff', '#ffff00'];
+            // Random color - more yellow stars
+            const colors = ['#ffff00', '#ffeb3b', '#ffd700', '#ffa500', '#ffffff', '#fffacd', '#fff44f'];
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
             star.style.background = randomColor;
-            star.style.boxShadow = `0 0 20px ${randomColor}, 0 0 40px ${randomColor}, 0 0 60px ${randomColor}`;
+            star.style.boxShadow = `0 0 30px ${randomColor}, 0 0 60px ${randomColor}, 0 0 90px ${randomColor}`;
             
             // Random position
             star.style.left = Math.random() * 100 + '%';
@@ -224,6 +226,8 @@ function initParticles() {
             
             particlesContainer.appendChild(star);
         }
+        
+        console.log('Stars created! Total in container:', particlesContainer.children.length);
     }
     
     function createParticle() {
