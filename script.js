@@ -209,10 +209,10 @@ function initParticles() {
             star.classList.add(sizeClass);
             
             // Random color - white or fire-yellow
-            const colors = ['#ffffff', '#ffeb3b', '#ffd700', '#ffa500', '#fff'];
+            const colors = ['#ffffff', '#ffeb3b', '#ffd700', '#ffa500', '#fff', '#ffff00'];
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
             star.style.background = randomColor;
-            star.style.boxShadow = `0 0 10px ${randomColor}, 0 0 20px ${randomColor}`;
+            star.style.boxShadow = `0 0 20px ${randomColor}, 0 0 40px ${randomColor}, 0 0 60px ${randomColor}`;
             
             // Random position
             star.style.left = Math.random() * 100 + '%';
