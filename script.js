@@ -1096,3 +1096,128 @@ function initializeThemeToggle() {
 
 // Uncomment to enable theme toggle
 // initializeThemeToggle();
+
+// Floating Geometric Shapes
+function initFloatingShapes() {
+    const shapes = [];
+    const shapeTypes = ['circle', 'square', 'triangle'];
+    const numShapes = 8;
+    
+    for (let i = 0; i < numShapes; i++) {
+        const shape = document.createElement('div');
+        shape.className = `floating-shape shape-${shapeTypes[Math.floor(Math.random() * shapeTypes.length)]}`;
+        
+        const size = Math.random() * 100 + 50;
+        shape.style.width = size + 'px';
+        shape.style.height = size + 'px';
+        shape.style.left = Math.random() * 100 + '%';
+        shape.style.top = Math.random() * 100 + '%';
+        shape.style.animationDelay = Math.random() * 10 + 's';
+        
+        document.body.appendChild(shape);
+        shapes.push(shape);
+    }
+}
+
+// Scroll Reveal Animations
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('section');
+    
+    revealElements.forEach((element, index) => {
+        if (index % 3 === 0) {
+            element.classList.add('reveal-left');
+        } else if (index % 3 === 1) {
+            element.classList.add('reveal');
+        } else {
+            element.classList.add('reveal-right');
+        }
+    });
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    revealElements.forEach(element => observer.observe(element));
+}
+
+// Ripple Effect on Buttons
+function initRippleEffect() {
+    const buttons = document.querySelectorAll('.btn, button');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple');
+            
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => ripple.remove(), 600);
+        });
+    });
+}
+
+// Parallax Effect
+function initParallax() {
+    let ticking = false;
+    
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.floating-shape, .star');
+                
+                parallaxElements.forEach((element, index) => {
+                    const speed = 0.5 + (index % 3) * 0.2;
+                    const yPos = -(scrolled * speed);
+                    element.style.transform = `translateY(${yPos}px)`;
+                });
+                
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
+
+// Magnetic Button Effect
+function initMagneticButtons() {
+    const buttons = document.querySelectorAll('.btn');
+    
+    buttons.forEach(button => {
+        button.addEventListener('mousemove', (e) => {
+            const rect = button.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            button.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+        });
+        
+        button.addEventListener('mouseleave', () => {
+            button.style.transform = 'translate(0, 0)';
+        });
+    });
+}
+
+// Initialize magnetic buttons
+initMagneticButtons();
+
+// Initialize all new features
+document.addEventListener('DOMContentLoaded', () => {
+    initFloatingShapes();
+    initScrollReveal();
+    initRippleEffect();
+    initParallax();
+});
