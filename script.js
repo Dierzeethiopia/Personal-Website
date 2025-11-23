@@ -211,7 +211,7 @@ function initParticles() {
             star.classList.add(sizeClass);
             
             // Random color - more yellow stars
-            const colors = ['#ffff00', '#ffeb3b', '#ffd700', '#ffa500', '#ffffff', '#fffacd', '#fff44f'];
+            const colors = ['#ffff00', '#ffeb3b', '#ff0000ff', '#ff0000ff', '#ffffff', '#fffacd', '#fff44f'];
             const randomColor = colors[Math.floor(Math.random() * colors.length)];
             star.style.background = randomColor;
             star.style.boxShadow = `0 0 30px ${randomColor}, 0 0 60px ${randomColor}, 0 0 90px ${randomColor}`;
