@@ -93,7 +93,7 @@ section[class*="Leadership"]::before, section[class*="Leadership"]::after {
 
 /* Smooth scrolling */
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
 }
 
 /* Custom utility classes */

@@ -216,6 +216,8 @@ function initParticles() {
             star.style.background = randomColor;
             star.style.boxShadow = `0 0 30px ${randomColor}, 0 0 60px ${randomColor}, 0 0 90px ${randomColor}`;
             
+
+    
             // Random position
             star.style.left = Math.random() * 100 + '%';
             star.style.top = Math.random() * 100 + '%';
@@ -539,16 +541,29 @@ function initThemeToggle() {
 // Parallax Effects
 function initParallaxEffects() {
     const parallaxElements = document.querySelectorAll('.parallax');
+    let ticking = false;
+    
+    // Add will-change for performance
+    parallaxElements.forEach(element => {
+        element.style.willChange = 'transform';
+    });
     
     window.addEventListener('scroll', () => {
-        const scrollTop = window.pageYOffset;
-        
-        parallaxElements.forEach(element => {
-            const speed = element.dataset.speed || 0.5;
-            const yPos = -(scrollTop * speed);
-            element.style.transform = `translateY(${yPos}px)`;
-        });
-    });
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                const scrollTop = window.pageYOffset;
+                
+                parallaxElements.forEach(element => {
+                    const speed = element.dataset.speed || 0.5;
+                    const yPos = -(scrollTop * speed);
+                    element.style.transform = `translateY(${yPos}px)`;
+                });
+                
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 }
 
 // Magnetic Button Effect
