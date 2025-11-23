@@ -196,15 +196,15 @@ html {
 }
 
 .star-medium {
-    width: 1.2px;
-    height: 1.2px;
-    opacity: 0.8;
+    width: 0.05px;
+    height: 0.05px;
+    opacity: 0.008;
 }
 
 .star-large {
-    width: 1.8px;
-    height: 1.8px;
-    opacity: 0.9;
+    width: 0.08px;
+    height: 0.05px;
+    opacity: 0.05;
 }
 
 @keyframes float {
