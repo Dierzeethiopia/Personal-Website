@@ -1214,10 +1214,157 @@ function initMagneticButtons() {
 // Initialize magnetic buttons
 initMagneticButtons();
 
+// Cursor Trail Effect
+function initCursorTrail() {
+    let trails = [];
+    const maxTrails = 20;
+    
+    document.addEventListener('mousemove', (e) => {
+        if (trails.length >= maxTrails) {
+            const oldTrail = trails.shift();
+            oldTrail.remove();
+        }
+        
+        const trail = document.createElement('div');
+        trail.className = 'cursor-trail';
+        trail.style.left = e.clientX + 'px';
+        trail.style.top = e.clientY + 'px';
+        document.body.appendChild(trail);
+        trails.push(trail);
+        
+        setTimeout(() => {
+            trail.remove();
+            trails = trails.filter(t => t !== trail);
+        }, 800);
+    });
+}
+
+// Scan Line Effect
+function initScanLine() {
+    const scanLine = document.createElement('div');
+    scanLine.className = 'scan-line';
+    document.body.appendChild(scanLine);
+}
+
+// Dynamic Grid Background
+function initDynamicGrid() {
+    const grid = document.createElement('div');
+    grid.className = 'dynamic-grid';
+    document.body.insertBefore(grid, document.body.firstChild);
+}
+
+// Morphing Blobs
+function initMorphingBlobs() {
+    const numBlobs = 4;
+    const colors = [
+        'linear-gradient(45deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15))',
+        'linear-gradient(45deg, rgba(139, 92, 246, 0.15), rgba(236, 72, 153, 0.15))',
+        'linear-gradient(45deg, rgba(236, 72, 153, 0.12), rgba(245, 158, 11, 0.12))',
+        'linear-gradient(45deg, rgba(16, 185, 129, 0.12), rgba(59, 130, 246, 0.12))'
+    ];
+    
+    for (let i = 0; i < numBlobs; i++) {
+        const blob = document.createElement('div');
+        blob.className = 'morphing-blob';
+        blob.style.width = (Math.random() * 300 + 200) + 'px';
+        blob.style.height = (Math.random() * 300 + 200) + 'px';
+        blob.style.left = (Math.random() * 100) + '%';
+        blob.style.top = (Math.random() * 100) + '%';
+        blob.style.background = colors[i];
+        blob.style.animationDelay = (i * 5) + 's';
+        document.body.appendChild(blob);
+    }
+}
+
+// 3D Tilt Effect for Cards
+function init3DTilt() {
+    const cards = document.querySelectorAll('.project-card, .glass-card');
+    
+    cards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.03)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+        });
+    });
+}
+
+// Holographic Text Effect
+function initHolographicText() {
+    const titles = document.querySelectorAll('h1, h2.section-title');
+    titles.forEach(title => {
+        if (!title.classList.contains('holographic')) {
+            title.classList.add('holographic');
+            title.setAttribute('data-text', title.textContent);
+        }
+    });
+}
+
+// Energy Pulse on Hover
+function initEnergyPulse() {
+    const buttons = document.querySelectorAll('.btn, button');
+    
+    buttons.forEach(button => {
+        button.classList.add('liquid-button');
+        
+        button.addEventListener('mouseenter', function() {
+            const pulse = document.createElement('span');
+            pulse.className = 'energy-pulse';
+            this.style.position = 'relative';
+            this.appendChild(pulse);
+            
+            setTimeout(() => pulse.remove(), 2000);
+        });
+    });
+}
+
+// Iridescent Borders
+function initIridescentBorders() {
+    const sections = document.querySelectorAll('section');
+    sections.forEach((section, index) => {
+        if (index % 2 === 0) {
+            section.classList.add('iridescent-border');
+            section.style.borderRadius = '24px';
+            section.style.padding = '3rem';
+        }
+    });
+}
+
+// Cyber Grid Background
+function initCyberGrid() {
+    const mainContent = document.querySelector('main');
+    if (mainContent) {
+        mainContent.classList.add('cyber-grid');
+        mainContent.style.position = 'relative';
+        mainContent.style.zIndex = '10';
+    }
+}
+
 // Initialize all new features
 document.addEventListener('DOMContentLoaded', () => {
     initFloatingShapes();
     initScrollReveal();
     initRippleEffect();
     initParallax();
+    initCursorTrail();
+    initScanLine();
+    initDynamicGrid();
+    initMorphingBlobs();
+    init3DTilt();
+    initHolographicText();
+    initEnergyPulse();
+    initIridescentBorders();
+    initCyberGrid();
 });
