@@ -18,15 +18,15 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-200 text-gray-900 font-inter cursor-glow">
+<body class="bg-neutral-900 text-neutral-100 font-inter cursor-glow">
     <!-- Particle Container -->
     <div class="particles-container"></div>
     
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 bg-gray-100/90 backdrop-blur-md z-50 border-b border-gray-300">
+    <nav class="fixed top-0 left-0 right-0 bg-neutral-900/95 backdrop-blur-md z-50 border-b border-neutral-700">
         <div class="max-w-7xl mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
-                <a href="#home" class="text-2xl font-bold text-gradient hover:text-blue-600 transition-colors floating">
+                <a href="#home" class="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors floating">
                     DA
                 </a>
                 <ul class="hidden md:flex space-x-8">
@@ -36,14 +36,14 @@
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <button class="md:hidden text-gray-700 magnetic-btn" id="mobile-menu-btn">
+                <button class="md:hidden text-neutral-300 magnetic-btn" id="mobile-menu-btn">
                     <i class="fas fa-bars text-xl"></i>
                 </button>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div class="md:hidden hidden bg-gray-100 border-t border-gray-300" id="mobile-menu">
+        <div class="md:hidden hidden bg-neutral-900 border-t border-neutral-700" id="mobile-menu">
             <div class="px-6 py-4 space-y-4">
                 <a href="#home" class="block nav-link">Home</a>
                 <a href="#about" class="block nav-link">About</a>
@@ -55,20 +55,20 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-200 to-indigo-300 relative overflow-hidden animate-on-scroll parallax" data-speed="0.5">
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 relative overflow-hidden animate-on-scroll parallax" data-speed="0.5">
         <div class="max-w-4xl mx-auto text-center px-6 relative z-10">
             <div class="mb-8 floating">
                 <img src="home.jpg" alt="Dires Sabatieneh Profile" 
                      class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl border-4 border-gray-300 pulse-glow card-hover">
             </div>
             
-            <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 animate-fade-in-up text-glow">
-                Hi, I'm <span class="text-gradient floating">Dires Abatieneh</span>
+            <h1 class="text-5xl md:text-7xl font-bold text-neutral-100 mb-6 animate-fade-in-up text-glow">
+                Hi, I'm <span class="text-blue-400 floating">Dires Abatieneh</span>
             </h1>
             
-            <div class="text-2xl md:text-3xl text-gray-600 mb-8 h-16 flex items-center justify-center">
-                <span class="typewriter-text text-gradient">Computer Science Student</span>
-                <span class="animate-pulse ml-1 text-blue-600">|</span>
+            <div class="text-2xl md:text-3xl text-neutral-400 mb-8 h-16 flex items-center justify-center">
+                <span class="typewriter-text text-neutral-300">Computer Science Student</span>
+                <span class="animate-pulse ml-1 text-blue-400">|</span>
             </div>
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -98,7 +98,7 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gradient-to-br from-slate-50 to-gray-100 animate-on-scroll border-t-4 border-b-4 border-gradient-to-r from-blue-500 via-purple-500 to-pink-500 shadow-xl">
+    <section id="about" class="py-20 bg-neutral-800 animate-on-scroll border-t border-neutral-700 shadow-xl">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="section-title floating">About Me</h2>
@@ -107,8 +107,8 @@
             
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Hello! I'm a student developer passionate about innovation.</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
+                    <h3 class="text-2xl font-bold text-neutral-100 mb-6">Hello! I'm a student developer passionate about innovation.</h3>
+                    <p class="text-neutral-400 mb-6 leading-relaxed">
                         Second-year Computer Science and Mathematics student interested in software engineering, AI, and data science. 
                         I enjoy building full-stack applications, exploring machine learning fundamentals, and using modern AI tools to accelerate problem-solving. 
                         I’m especially motivated by projects where I can translate concepts from class into real, scalable systems.
@@ -124,16 +124,16 @@
                     <!-- Engaging professional photo -->
                     <div class="relative mb-8">
                             <img src="profile.jpg" alt="Dires at Williams College" 
-                                class="about-photo w-80 h-80 object-cover rounded-2xl shadow-2xl mx-auto floating card-hover pulse-glow border-4 border-gray-300">
-                        <div class="absolute -bottom-4 -right-4 bg-gradient-to-br from-blue-500 to-purple-600 text-white p-3 rounded-full shadow-lg floating">
+                                class="about-photo w-80 h-80 object-cover rounded-2xl shadow-2xl mx-auto floating card-hover pulse-glow border-4 border-neutral-700">
+                        <div class="absolute -bottom-4 -right-4 bg-blue-500 text-white p-3 rounded-full shadow-lg floating">
                             <i class="fas fa-code text-xl"></i>
                         </div>
                     </div>
                     
-                    <h4 class="text-xl font-bold text-gray-900 mb-6 text-gradient">Skills & Technologies</h4>
+                    <h4 class="text-xl font-bold text-neutral-100 mb-6">Skills & Technologies</h4>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="skill-category">
-                            <h5 class="font-semibold text-gray-900 mb-3">Languages</h5>
+                            <h5 class="font-semibold text-neutral-200 mb-3">Languages</h5>
                             <div class="space-y-2">
                                 <span class="skill-tag card-hover">Python</span>
                                 <span class="skill-tag card-hover">Java</span>
@@ -145,7 +145,7 @@
                             </div>
                         </div>
                         <div class="skill-category">
-                            <h5 class="font-semibold text-gray-900 mb-3">Frameworks & Tools</h5>
+                            <h5 class="font-semibold text-neutral-200 mb-3">Frameworks & Tools</h5>
                             <div class="space-y-2">
                                 <span class="skill-tag card-hover">React.js</span>
                                 <span class="skill-tag card-hover">React Native</span>
@@ -157,7 +157,7 @@
                             </div>
                         </div>
                         <div class="skill-category">
-                            <h5 class="font-semibold text-gray-900 mb-3">Core Knowledge</h5>
+                            <h5 class="font-semibold text-neutral-200 mb-3">Core Knowledge</h5>
                             <div class="space-y-2">
                                 <span class="skill-tag card-hover">Algorithms & DS</span>
                                 <span class="skill-tag card-hover">AI & ML</span>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                         <div class="skill-category">
-                            <h5 class="font-semibold text-gray-900 mb-3">Specialties</h5>
+                            <h5 class="font-semibold text-neutral-200 mb-3">Specialties</h5>
                             <div class="space-y-2">
                                 <span class="skill-tag">REST APIs</span>
                                 <span class="skill-tag">Real-time Apps</span>
@@ -183,7 +183,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-gradient-to-br from-gray-50 to-slate-100 animate-on-scroll parallax border-t-4 border-b-4 border-gradient-to-r from-indigo-500 via-blue-500 to-cyan-500 shadow-2xl" data-speed="0.3">
+    <section id="projects" class="py-20 bg-neutral-900 animate-on-scroll parallax border-t border-neutral-700 shadow-2xl" data-speed="0.3">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="section-title floating">Featured Projects</h2>
@@ -207,8 +207,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Campus BookXchange</h3>
-                        <p class="text-gray-600 mb-4">Full-stack book marketplace enabling students to buy, sell, and giveaway used books.</p>
+                        <h3 class="text-xl font-bold text-neutral-100 mb-3">Campus BookXchange</h3>
+                        <p class="text-neutral-400 mb-4">Full-stack book marketplace enabling students to buy, sell, and giveaway used books.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="tech-tag">Java</span>
                             <span class="tech-tag">Swing</span>
@@ -234,8 +234,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">CipherChat</h3>
-                        <p class="text-gray-600 mb-4">Real-time encrypted chat app for web and iOS with AES encryption and JWT authentication.</p>
+                        <h3 class="text-xl font-bold text-neutral-100 mb-3">CipherChat</h3>
+                        <p class="text-neutral-400 mb-4">Real-time encrypted chat app for web and iOS with AES encryption and JWT authentication.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="tech-tag">React Native</span>
                             <span class="tech-tag">Socket.io</span>
@@ -261,8 +261,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Smart Parking System</h3>
-                        <p class="text-gray-600 mb-4">Real-time parking web module with Stripe integration, improving driver response time by 25%.</p>
+                        <h3 class="text-xl font-bold text-neutral-100 mb-3">Smart Parking System</h3>
+                        <p class="text-neutral-400 mb-4">Real-time parking web module with Stripe integration, improving driver response time by 25%.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="tech-tag">React.js</span>
                             <span class="tech-tag">Socket.io</span>
@@ -288,8 +288,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">The Williams Atlas</h3>
-                        <p class="text-gray-600 mb-4">Engineered advanced pathfinding system with optimized Dijkstra's algorithm, achieving 40% performance improvement through strategic data structures and robust CSV/JSON parsers.</p>
+                        <h3 class="text-xl font-bold text-neutral-100 mb-3">The Williams Atlas</h3>
+                        <p class="text-neutral-400 mb-4">Engineered advanced pathfinding system with optimized Dijkstra's algorithm, achieving 40% performance improvement through strategic data structures and robust CSV/JSON parsers.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">OOP</span>
@@ -316,8 +316,8 @@
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-bold text-gray-900 mb-3">Habesha Clothes E-commerce</h3>
-                        <p class="text-gray-600 mb-4">Built full-stack e-commerce platform to showcase and sell Ethiopian traditional clothing, promoting cultural heritage globally through modern web technologies.</p>
+                        <h3 class="text-xl font-bold text-neutral-100 mb-3">Habesha Clothes E-commerce</h3>
+                        <p class="text-neutral-400 mb-4">Built full-stack e-commerce platform to showcase and sell Ethiopian traditional clothing, promoting cultural heritage globally through modern web technologies.</p>
                         <div class="flex flex-wrap gap-2">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
@@ -338,7 +338,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-gradient-to-br from-zinc-50 to-stone-100 border-t-4 border-b-4 border-gradient-to-r from-purple-500 via-pink-500 to-red-500 shadow-xl">
+    <section id="experience" class="py-20 bg-neutral-800 border-t border-neutral-700 shadow-xl">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="section-title">Experience</h2>
@@ -413,7 +413,7 @@
     </section>
 
     <!-- Leadership & Recognition Section -->
-    <section class="py-20 bg-gradient-to-br from-slate-50 to-gray-100 border-t-4 border-b-4 border-gradient-to-r from-green-500 via-teal-500 to-blue-500 shadow-2xl">
+    <section class="py-20 bg-neutral-900 border-t border-neutral-700 shadow-2xl">
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="section-title">Leadership & Recognition</h2>
@@ -492,7 +492,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gradient-to-br from-gray-50 to-slate-100 animate-on-scroll parallax border-t-4 border-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 shadow-2xl" data-speed="0.2">
+    <section id="contact" class="py-20 bg-neutral-800 animate-on-scroll parallax border-t border-neutral-700 shadow-2xl" data-speed="0.2">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="section-title floating">Let's Connect</h2>
