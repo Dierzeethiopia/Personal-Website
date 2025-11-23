@@ -196,6 +196,30 @@ function initParticles() {
     particlesContainer.className = 'particles-container';
     document.body.appendChild(particlesContainer);
     
+    // Create moving stars
+    function createStars() {
+        const starCount = 100; // Number of stars
+        
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            
+            // Random size class
+            const sizeClass = ['star-small', 'star-medium', 'star-large'][Math.floor(Math.random() * 3)];
+            star.classList.add(sizeClass);
+            
+            // Random position
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            
+            // Random animation duration for variety
+            star.style.animationDuration = `${Math.random() * 3 + 2}s, ${Math.random() * 30 + 20}s`;
+            star.style.animationDelay = `${Math.random() * 3}s, ${Math.random() * 5}s`;
+            
+            particlesContainer.appendChild(star);
+        }
+    }
+    
     function createParticle() {
         const particle = document.createElement('div');
         particle.className = 'particle';
@@ -209,6 +233,9 @@ function initParticles() {
             particle.remove();
         }, 6000);
     }
+    
+    // Create stars once
+    createStars();
     
     // Create particles periodically
     setInterval(createParticle, 500);
