@@ -197,7 +197,7 @@ function initParticles() {
     document.body.appendChild(particlesContainer);
     
     // Create moving stars
-    function createStars() {
+    function createStars(90) {
         const starCount = 300; // Increased number of stars
         
         console.log('Creating', starCount, 'stars...');
@@ -247,7 +247,7 @@ function initParticles() {
     }
     
     // Create stars once
-    createStars();
+    createStars(90);
     
     // Create particles periodically
     setInterval(createParticle, 500);
