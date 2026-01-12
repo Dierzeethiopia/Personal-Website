@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dires Sabatieneh - Portfolio</title>
+    <meta name="description" content="Computer Science & Mathematics student at Williams College | Software Engineer | Building innovative solutions with AI and full-stack development">
+    
+    <!-- Tailwind CSS -->
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-neutral-500 text-neutral-900 font-inter cursor-glow overflow-x-hidden">
+    <!-- Particle Container -->
+    <div class="particles-container"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-neutral-500/95 backdrop-blur-md z-50 border-b border-neutral-400">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors floating">
+                    DA
+                </a>
+                <ul class="hidden md:flex space-x-8">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <button class="md:hidden text-neutral-900 magnetic-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-neutral-500 border-t border-neutral-400" id="mobile-menu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block nav-link">Home</a>
+                <a href="#about" class="block nav-link">About</a>
+                <a href="#projects" class="block nav-link">Projects</a>
+                <a href="#experience" class="block nav-link">Experience</a>
+                <a href="#contact" class="block nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 relative overflow-hidden animate-on-scroll parallax" data-speed="0.5">
+        <div class="max-w-4xl mx-auto text-center px-6 relative z-10">
+            <div class="mb-8 floating">
+                <img src="home.jpg" alt="Dires Sabatieneh Profile" 
+                     class="w-32 h-32 rounded-full mx-auto mb-6 shadow-xl border-4 border-gray-300 pulse-glow card-hover">
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 animate-fade-in-up text-glow" style="white-space: nowrap;">Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-purple-500 floating holographic animate-pulse" style="text-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.5), 0 0 90px rgba(139, 92, 246, 0.4); font-size: 1.15em; font-weight: 900;">Dires Abatieneh</span></h1>
+            
+            <div class="text-2xl md:text-3xl text-neutral-300 mb-8 h-16 flex items-center justify-center">
+                <span class="typewriter-text text-neutral-200">Computer Science Student</span>
+                <span class="animate-pulse ml-1 text-blue-400">|</span>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="#projects" class="btn btn-primary">
+                    View My Work
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    Get In Touch
+                    <i class="fas fa-envelope ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="flex justify-center space-x-6">
+                <a href="https://github.com/Dierzeethiopia" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub Profile">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/dires-a-abatieneh" target="_blank" rel="noopener noreferrer" class="social-link" title="LinkedIn Profile">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:daa3@williams.edu" class="social-link" title="Email Me">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-neutral-400 animate-on-scroll border-t border-neutral-300 shadow-xl">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title floating">About Me</h2>
+                <p class="section-subtitle animate-fade-in-up">Passionate about creating innovative solutions and pushing the boundaries of technology</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-neutral-900 mb-6">Hello! I'm a student developer passionate about innovation.</h3>
+                    <p class="text-neutral-800 mb-6 leading-relaxed">
+                        Second-year Computer Science and Mathematics student interested in software engineering, AI, and data science. 
+                        I enjoy building full-stack applications, exploring machine learning fundamentals, and using modern AI tools to accelerate problem-solving. 
+                        I’m especially motivated by projects where I can translate concepts from class into real, scalable systems.
+                    </p>
+                    
+                    <a href="/Dires_Abatieneh_Resume.pdf" download class="btn btn-outline">
+                        Download Resume
+                        <i class="fas fa-download ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="text-center">
+                    <!-- Engaging professional photo -->
+                    <div class="relative mb-8">
+                            <img src="profile.jpg" alt="Dires at Williams College" 
+                                class="about-photo w-80 h-80 object-cover rounded-2xl shadow-2xl mx-auto floating card-hover pulse-glow border-4 border-neutral-700">
+                        <div class="absolute -bottom-4 -right-4 bg-blue-500 text-white p-3 rounded-full shadow-lg floating">
+                            <i class="fas fa-code text-xl"></i>
+                        </div>
+                    </div>
+                    
+                    <h4 class="text-xl font-bold text-neutral-900 mb-6">Skills & Technologies</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="skill-category">
+                            <h5 class="font-semibold text-neutral-800 mb-3">Languages</h5>
+                            <div class="space-y-2">
+                                <span class="skill-tag card-hover">Python</span>
+                                <span class="skill-tag card-hover">Java</span>
+                                <span class="skill-tag card-hover">JavaScript</span>
+                                <span class="skill-tag card-hover">TypeScript</span>
+                                <span class="skill-tag card-hover">C#</span>
+                                <span class="skill-tag card-hover">SQL</span>
+                                <span class="skill-tag card-hover">R</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h5 class="font-semibold text-neutral-800 mb-3">Frameworks & Tools</h5>
+                            <div class="space-y-2">
+                                <span class="skill-tag card-hover">React.js</span>
+                                <span class="skill-tag card-hover">React Native</span>
+                                <span class="skill-tag card-hover">Node.js</span>
+                                <span class="skill-tag card-hover">Express</span>
+                                <span class="skill-tag card-hover">MongoDB</span>
+                                <span class="skill-tag card-hover">Socket.io</span>
+                                <span class="skill-tag card-hover">Git</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h5 class="font-semibold text-neutral-800 mb-3">Core Knowledge</h5>
+                            <div class="space-y-2">
+                                <span class="skill-tag card-hover">Algorithms & DS</span>
+                                <span class="skill-tag card-hover">AI & ML</span>
+                                <span class="skill-tag card-hover">Distributed Systems</span>
+                                <span class="skill-tag card-hover">Database Systems</span>
+                                <span class="skill-tag card-hover">Security</span>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h5 class="font-semibold text-neutral-800 mb-3">Specialties</h5>
+                            <div class="space-y-2">
+                                <span class="skill-tag">REST APIs</span>
+                                <span class="skill-tag">Real-time Apps</span>
+                                <span class="skill-tag">Encryption</span>
+                                <span class="skill-tag">Payment Systems</span>
+                                <span class="skill-tag">Mobile Dev</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-neutral-500 animate-on-scroll parallax border-t border-neutral-400 shadow-2xl" data-speed="0.3">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title floating">Featured Projects</h2>
+                <p class="section-subtitle animate-fade-in-up">Showcasing my passion for innovative software development</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="bookxchange.png" alt="Campus BookXchange">
+                        <div class="project-overlay">
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Dierzeethiopia/Book-Exchange-System" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-neutral-900 mb-3">Campus BookXchange</h3>
+                        <p class="text-neutral-800 mb-4">Full-stack book marketplace enabling students to buy, sell, and giveaway used books.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Swing</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">TypeScript</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="message.png" alt="CipherChat">
+                        <div class="project-overlay">
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Dierzeethiopia/Messaging-App" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-neutral-900 mb-3">CipherChat</h3>
+                        <p class="text-neutral-800 mb-4">Real-time encrypted chat app for web and iOS with AES encryption and JWT authentication.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="parking.png" alt="Smart Parking System">
+                        <div class="project-overlay">
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-neutral-900 mb-3">Smart Parking System</h3>
+                        <p class="text-neutral-800 mb-4">Real-time parking web module with Stripe integration, improving driver response time by 25%.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">React.js</span>
+                            <span class="tech-tag">Socket.io</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Stripe API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="graph.jpg" alt="Graph-based Campus Routing">
+                        <div class="project-overlay">
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Dierzeethiopia/The-Williams-Atlas" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-neutral-900 mb-3">The Williams Atlas</h3>
+                        <p class="text-neutral-800 mb-4">Engineered advanced pathfinding system with optimized Dijkstra's algorithm, achieving 40% performance improvement through strategic data structures and robust CSV/JSON parsers.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">OOP</span>
+                            <span class="tech-tag">Algorithms</span>
+                            <span class="tech-tag">Tkinter</span>
+                            <span class="tech-tag">Data Structures</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="commerce.jpg" alt="Habesha Dress E-commerce">
+                        <div class="project-overlay">
+                            <div class="flex space-x-4">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="https://github.com/Dierzeethiopia/VividNest" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-neutral-900 mb-3">Habesha Clothes E-commerce</h3>
+                        <p class="text-neutral-800 mb-4">Built full-stack e-commerce platform to showcase and sell Ethiopian traditional clothing, promoting cultural heritage globally through modern web technologies.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Shell</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://github.com/Dierzeethiopia" class="btn btn-outline">
+                    View All Projects on GitHub
+                    <i class="fab fa-github ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-neutral-400 border-t border-neutral-300 shadow-xl">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">My professional journey</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="absolute left-8 md:left-1/2 transform md:-translate-x-px top-0 bottom-0 w-0.5 bg-gray-200"></div>
+                
+                <!-- Experience Item 1 -->
+                <div class="relative mb-12">
+                    <div class="flex items-center mb-4">
+                        <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-blue-600 rounded-full border-4 border-gray-300 shadow"></div>
+                        <div class="ml-16 md:ml-0 md:w-1/2 md:pr-8 md:text-right md:order-2">
+                            <h3 class="text-xl font-bold text-gray-900">Teaching Assistant</h3>
+                            <p class="text-blue-600 font-semibold">Williams College</p>
+                            <p class="text-gray-500">Nov 2025 - Present</p>
+                        </div>
+                    </div>
+                    <div class="ml-16 md:ml-0 md:w-1/2 md:pr-8 md:text-right md:order-2">
+                        <p class="text-gray-600">Guide 50+ students weekly through calculus principles and complex problem-solving techniques.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience Item 2 -->
+                <div class="relative mb-12">
+                    <div class="flex items-center mb-4">
+                        <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-green-600 rounded-full border-4 border-gray-300 shadow"></div>
+                        <div class="ml-16 md:ml-0 md:w-1/2 md:ml-auto md:pl-8">
+                            <h3 class="text-xl font-bold text-gray-900">Software Engineer Intern</h3>
+                            <p class="text-green-600 font-semibold">Guba Technologies, Ethiopia</p>
+                            <p class="text-gray-500">May - Aug 2025</p>
+                        </div>
+                    </div>
+                    <div class="ml-16 md:ml-0 md:w-1/2 md:ml-auto md:pl-8">
+                        <p class="text-gray-600">Developed a comprehensive dashboard using React and TypeScript to visualize key metrics such as customer trends, churn rates, and sales performance. Enhanced API data pipelines, resulting in a 30% reduction in chart re-renders and improved load times for financial metrics.</p>
+                    </div>
+                </div>
+                
+                <!-- Experience Item 3 -->
+                <div class="relative mb-12">
+                    <div class="flex items-center mb-4">
+                        <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-purple-600 rounded-full border-4 border-gray-300 shadow"></div>
+                        <div class="ml-16 md:ml-0 md:w-1/2 md:pr-8 md:text-right md:order-2">
+                            <h3 class="text-xl font-bold text-gray-900">CodePath Community Leader</h3>
+                            <p class="text-purple-600 font-semibold">CodePath</p>
+                            <p class="text-gray-500">Jan - May 2025</p>
+                        </div>
+                    </div>
+                    <div class="ml-16 md:ml-0 md:w-1/2 md:pr-8 md:text-right md:order-2">
+                        <p class="text-gray-600">Selected among top student leaders to mentor underrepresented peers in tech through coding sessions, mock interviews, and collaborative learning.</p>
+                    </div>
+                </div>
+                
+                <!-- Education -->
+                <div class="relative">
+                    <div class="flex items-center mb-4">
+                        <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-orange-600 rounded-full border-4 border-gray-300 shadow"></div>
+                        <div class="ml-16 md:ml-0 md:w-1/2 md:ml-auto md:pl-8">
+                            <h3 class="text-xl font-bold text-gray-900">B.A. Computer Science</h3>
+                            <p class="text-orange-600 font-semibold">Williams College</p>
+                            <p class="text-gray-500">2024 - 2028 (Expected)</p>
+                        </div>
+                    </div>
+                    <div class="ml-16 md:ml-0 md:w-1/2 md:ml-auto md:pl-8">
+                        <p class="text-gray-600">Relevant coursework: Data Structures & Algorithms, AI, Discrete Math, Computer Organization, Logic and Language.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Recognition Section -->
+    <section class="py-20 bg-neutral-500 border-t border-neutral-400 shadow-2xl">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title">Leadership & Recognition</h2>
+                <p class="section-subtitle">Building communities and advancing equity in tech</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Fellowships -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <i class="fas fa-award text-yellow-600 mr-3"></i>
+                        Fellowships
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <h4 class="text-lg font-bold text-gray-900 mb-2">Code2040 Fellow</h4>
+                            <p class="text-blue-600 font-semibold mb-2">Fall 2025</p>
+                            <p class="text-gray-600">Advancing equity in tech through mentorship, leadership development, and community impact initiatives.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <h4 class="text-lg font-bold text-gray-900 mb-2">AI4All Ignite Fellow</h4>
+                            <p class="text-green-600 font-semibold mb-2">Fall 2025</p>
+                            <p class="text-gray-600">Applying AI for social good through real-world projects and cross-disciplinary collaboration.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <h4 class="text-lg font-bold text-gray-900 mb-2">Keploy API Fellow</h4>
+                            <p class="text-purple-600 font-semibold mb-2">Summer 2025</p>
+                            <p class="text-gray-600">Built and tested production-grade APIs enhancing developer reliability and open-source quality.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Leadership Roles -->
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <i class="fas fa-users text-blue-600 mr-3"></i>
+                        Leadership
+                    </h3>
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <h4 class="text-lg font-bold text-gray-900 mb-2">Co-founder and Communications Officer</h4>
+                            <p class="text-blue-600 font-semibold mb-2">Ethiopian & Eritrean Students Association @ Williams</p>
+                            <p class="text-gray-500 mb-2">2024 - Present</p>                
+                            <p class="text-gray-600">Lead 20-member board organizing campus-wide cultural events, doubling engagement at major heritage events.</p>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+                            <h4 class="text-lg font-bold text-gray-900 mb-2">Promotional Maestro</h4>
+                            <p class="text-green-600 font-semibold mb-2">Williams Orthodox Christian Students Association</p>
+                            <p class="text-gray-500 mb-2">2025 - Present</p>
+                            <p class="text-gray-600">Plan biweekly promotional events and brand collaborations, strengthening cross-platform engagement and community connections.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Statistics -->
+                    <div class="mt-8 grid grid-cols-2 gap-4">
+                        <div class="text-center bg-gray-50 p-4 rounded-lg shadow-md">
+                            <div class="text-2xl font-bold text-blue-600">40+</div>
+                            <div class="text-sm text-gray-600">Students Mentored</div>
+                        </div>
+                        <div class="text-center bg-gray-50 p-4 rounded-lg shadow-md">
+                            <div class="text-2xl font-bold text-green-600">6</div>
+                            <div class="text-sm text-gray-600">Team Collaboration</div>
+                        </div>
+                        <div class="text-center bg-gray-50 p-4 rounded-lg shadow-md">
+                            <div class="text-2xl font-bold text-purple-600">25%</div>
+                            <div class="text-sm text-gray-600">Performance Improvement</div>
+                        </div>
+                        <div class="text-center bg-gray-50 p-4 rounded-lg shadow-md">
+                            <div class="text-2xl font-bold text-orange-600">3</div>
+                            <div class="text-sm text-gray-600">Major Fellowships</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-neutral-400 animate-on-scroll parallax border-t border-neutral-300 shadow-2xl" data-speed="0.2">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="section-title floating">Let's Connect</h2>
+                <p class="section-subtitle animate-fade-in-up">Ready to contribute to innovative projects and make an impact</p>
+                <div class="mt-4 inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium pulse-glow">
+                    <div class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
+                    Available for Summer 2026 Internships
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                        <i class="fas fa-handshake text-blue-600 mr-3"></i>
+                        Ready to Make an Impact
+                    </h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I'm actively seeking <strong>Summer 2026 internship opportunities</strong> where I can apply my 
+                        full-stack development skills, AI knowledge, and passion for mentoring to create meaningful solutions.
+                    </p>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6 rounded-r-lg">
+
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center group hover:bg-gray-50 p-3 rounded-lg transition-colors">
+                            <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-shadow">
+                                <i class="fas fa-envelope text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900">Email</p>
+                                <a href="mailto:daa3@williams.edu" class="text-blue-600 hover:text-blue-700 font-medium transition-colors">daa3@williams.edu</a>
+                                <p class="text-xs text-gray-500 mt-1">Williams College Email</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center group hover:bg-gray-50 p-3 rounded-lg transition-colors">
+                            <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-shadow">
+                                <i class="fab fa-linkedin text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900">LinkedIn</p>
+                                <a href="https://linkedin.com/in/dires-a-abatieneh" target="_blank" rel="noopener noreferrer" class="text-purple-600 hover:text-purple-700 font-medium transition-colors">dires-a-abatieneh</a>
+                                <p class="text-xs text-gray-500 mt-1">Professional Network</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center group hover:bg-gray-50 p-3 rounded-lg transition-colors">
+                            <div class="w-14 h-14 bg-gradient-to-br from-gray-700 to-gray-900 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-shadow">
+                                <i class="fab fa-github text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900">GitHub</p>
+                                <a href="https://github.com/Dierzeethiopia" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-gray-900 font-medium transition-colors">Dierzeethiopia</a>
+                                <p class="text-xs text-gray-500 mt-1">Code Portfolio & Projects</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center group hover:bg-gray-50 p-3 rounded-lg transition-colors">
+                            <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center mr-4 shadow-lg group-hover:shadow-xl transition-shadow">
+                                <i class="fas fa-graduation-cap text-white text-lg"></i>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900">Education</p>
+                                <p class="text-orange-600 font-medium">Williams College</p>
+                                <p class="text-xs text-gray-500 mt-1">CS & Math Double Major</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-4 mt-8">
+                        <a href="https://linkedin.com/in/dires-a-abatieneh" target="_blank" rel="noopener noreferrer" class="social-link group magnetic-btn" title="Connect on LinkedIn">
+                            <i class="fab fa-linkedin group-hover:scale-110 transition-transform"></i>
+                        </a>
+                        <a href="https://github.com/Dierzeethiopia" target="_blank" rel="noopener noreferrer" class="social-link group magnetic-btn" title="View GitHub Profile">
+                            <i class="fab fa-github group-hover:scale-110 transition-transform"></i>
+                        </a>
+                        <a href="mailto:daa3@williams.edu" class="social-link group magnetic-btn" title="Send Email">
+                            <i class="fas fa-envelope group-hover:scale-110 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-lg border border-gray-300 card-hover">
+                        <div class="text-center mb-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-2 text-gradient">Get In Touch</h4>
+                            <p class="text-gray-600 text-sm">Interested in working together? Let's start a conversation!</p>
+                        </div>
+                        
+                        <form class="space-y-5" id="contact-form">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="name" class="block text-sm font-semibold text-gray-900 mb-2">Name *</label>
+                                    <input type="text" id="name" name="name" required 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
+                                           placeholder="Your name">
+                                </div>
+                                <div>
+                                    <label for="company" class="block text-sm font-semibold text-gray-900 mb-2">Company</label>
+                                    <input type="text" id="company" name="company" 
+                                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
+                                           placeholder="Your company">
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-gray-900 mb-2">Email *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
+                                       placeholder="your.email@company.com">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-semibold text-gray-900 mb-2">I'm interested in *</label>
+                                <select id="subject" name="subject" required 
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors">
+                                    <option value="">Select an option...</option>
+                                    <option value="internship">Summer 2026 Internship Opportunities</option>
+                                    <option value="full-time">Full-time Opportunities (Post-graduation)</option>
+                                    <option value="project">Project Collaboration</option>
+                                    <option value="mentorship">Mentorship/Speaking Opportunities</option>
+                                    <option value="other">General Inquiry</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-semibold text-gray-900 mb-2">Message *</label>
+                                <textarea id="message" name="message" rows="4" required 
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors resize-none"
+                                          placeholder="Tell me about the opportunity or how we might work together..."></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary w-full group">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane ml-2 group-hover:translate-x-1 transition-transform"></i>
+                            </button>
+                            
+                            <p class="text-xs text-gray-500 text-center mt-4">
+                                I typically respond within 24 hours. For urgent inquiries, feel free to reach out via email.
+                            </p>
+                        </form>
+                    </div>
+                    
+                    <!-- Quick Action Buttons -->
+                    <div class="mt-8 grid grid-cols-2 gap-4">
+                        <a href="mailto:daa3@williams.edu?subject=Internship Opportunity&body=Hi Dires,%0D%0A%0D%0AI'd like to discuss a potential internship opportunity..." 
+                           class="flex items-center justify-center p-4 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <i class="fas fa-envelope mr-2"></i>
+                            <span class="font-semibold">Quick Email</span>
+                        </a>
+                        <a href="https://linkedin.com/in/dires-a-abatieneh" target="_blank" rel="noopener noreferrer"
+                           class="flex items-center justify-center p-4 bg-gradient-to-r from-blue-700 to-blue-800 text-white rounded-lg hover:from-blue-800 hover:to-blue-900 transition-all duration-300 shadow-lg hover:shadow-xl">
+                            <i class="fab fa-linkedin mr-2"></i>
+                            <span class="font-semibold">Connect</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center">
+                <p class="text-gray-400 mb-4">
+                    &copy; 2025 Dires Abatieneh. All rights reserved.
+                </p>
+                <p class="text-gray-500 text-sm">
+                    Built with ❤️ using HTML, CSS, and JavaScript
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
