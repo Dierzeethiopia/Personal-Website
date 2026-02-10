@@ -8,10 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <!-- AOS for animations -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
 </head>
 <body>
+    <!-- Dark Mode Toggle -->
+    <button id="darkModeToggle" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
+
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar glass">
         <div class="nav-container">
             <a href="#home" class="nav-logo">DA</a>
             <div class="nav-menu" id="navMenu">
@@ -27,26 +32,35 @@
     </nav>
 
     <!-- Hero -->
-    <section id="home" class="hero">
+    <section id="home" class="hero parallax" data-aos="fade-in">
         <div class="hero-content">
-            <img src="home.jpg" alt="Dires" class="hero-img">
-            <h1>Dires Sabatieneh</h1>
-            <p class="subtitle">Computer Science & Math Student | Full-Stack Developer</p>
-            <p class="tagline">Building scalable solutions with modern technology</p>
-            <div class="hero-buttons">
+            <img src="home.jpg" alt="Dires" class="hero-img" data-aos="zoom-in">
+            <h1 data-aos="fade-up">Dires Sabatieneh</h1>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="100">Computer Science & Math Student | AI & Software Engineer
+
+</p>
+            <p class="tagline" data-aos="fade-up" data-aos-delay="200">Building scalable solutions with modern technology</p>
+            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
                 <a href="#projects" class="btn btn-primary">View Work</a>
                 <a href="#contact" class="btn btn-secondary">Contact Me</a>
             </div>
-            <div class="social-icons">
+            <div class="social-icons" data-aos="fade-up" data-aos-delay="400">
                 <a href="https://github.com/Dierzeethiopia" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://linkedin.com/in/dires-a-abatieneh" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:daa3@williams.edu"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
+        <div class="hero-bg-shape"></div>
+        <div class="hero-decor">
+          <span class="dot dot1"></span>
+          <span class="dot dot2"></span>
+          <span class="dot dot3"></span>
+          <span class="dot dot4"></span>
+        </div>
     </section>
 
     <!-- About -->
-    <section id="about" class="about">
+    <section id="about" class="about glass" data-aos="fade-up">
         <div class="container">
             <h2>About Me</h2>
             <div class="about-grid">
@@ -60,11 +74,21 @@
                     <div class="skills">
                         <div class="skill-group">
                             <h4>Languages</h4>
-                            <p>Python, Java, JavaScript, TypeScript, C#, SQL</p>
+                            <div class="skill-bar" data-skill="Python"></div>
+                            <div class="skill-bar" data-skill="Java"></div>
+                            <div class="skill-bar" data-skill="JavaScript"></div>
+                            <div class="skill-bar" data-skill="TypeScript"></div>
+                            <div class="skill-bar" data-skill="C#"></div>
+                            <div class="skill-bar" data-skill="SQL"></div>
                         </div>
                         <div class="skill-group">
                             <h4>Tech Stack</h4>
-                            <p>React, Node.js, MongoDB, Express, Socket.io</p>
+                            <div class="skill-bar" data-skill="React"></div>
+                            <div class="skill-bar" data-skill="Node.js"></div>
+                            <div class="skill-bar" data-skill="MongoDB"></div>
+                            <div class="skill-bar" data-skill="Express"></div>
+                            <div class="skill-bar" data-skill="Socket.io"></div>
+                            <div class="skill-bar" data-skill="Next.js"></div>
                         </div>
                     </div>
                 </div>
@@ -73,11 +97,12 @@
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="projects">
+    <section id="projects" class="projects" data-aos="fade-up">
         <div class="container">
             <h2>Featured Projects</h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <!-- Each card gets a data-modal attribute for modal popups -->
+                <div class="project-card glass" data-modal="modal1">
                     <img src="bookxchange.png" alt="BookXchange">
                     <h3>Campus BookXchange</h3>
                     <p>Full-stack marketplace for students to buy/sell/share books</p>
@@ -87,8 +112,7 @@
                     </div>
                     <a href="https://github.com/Dierzeethiopia/Book-Exchange-System" target="_blank" class="project-link">View Code →</a>
                 </div>
-
-                <div class="project-card">
+                <div class="project-card glass" data-modal="modal2">
                     <img src="message.png" alt="CipherChat">
                     <h3>CipherChat</h3>
                     <p>Real-time encrypted messaging with AES encryption & JWT auth</p>
@@ -98,8 +122,7 @@
                     </div>
                     <a href="https://github.com/Dierzeethiopia/Messaging-App" target="_blank" class="project-link">View Code →</a>
                 </div>
-
-                <div class="project-card">
+                <div class="project-card glass" data-modal="modal3">
                     <img src="parking.png" alt="Parking">
                     <h3>Smart Parking System</h3>
                     <p>Real-time parking module with Stripe integration</p>
@@ -109,8 +132,7 @@
                     </div>
                     <a href="#" class="project-link">View Code →</a>
                 </div>
-
-                <div class="project-card">
+                <div class="project-card glass" data-modal="modal4">
                     <img src="graph.jpg" alt="Atlas">
                     <h3>Williams Atlas</h3>
                     <p>Advanced pathfinding with optimized Dijkstra's algorithm</p>
@@ -120,8 +142,7 @@
                     </div>
                     <a href="https://github.com/Dierzeethiopia/The-Williams-Atlas" target="_blank" class="project-link">View Code →</a>
                 </div>
-
-                <div class="project-card">
+                <div class="project-card glass" data-modal="modal5">
                     <img src="commerce.jpg" alt="Commerce">
                     <h3>Habesha E-commerce</h3>
                     <p>Full-stack platform for Ethiopian traditional clothing</p>
@@ -134,54 +155,98 @@
                 </div>
             </div>
         </div>
+        <!-- Project Modals -->
+        <div class="modal" id="modal1">
+            <div class="modal-content glass">
+                <span class="close">&times;</span>
+                <h3>Campus BookXchange</h3>
+                <p>Full-stack marketplace for students to buy/sell/share books. Built with Java and React.</p>
+                <img src="bookxchange.png" alt="BookXchange">
+                <a href="https://github.com/Dierzeethiopia/Book-Exchange-System" target="_blank" class="btn btn-primary">View Code</a>
+            </div>
+        </div>
+        <div class="modal" id="modal2">
+            <div class="modal-content glass">
+                <span class="close">&times;</span>
+                <h3>CipherChat</h3>
+                <p>Real-time encrypted messaging app with AES encryption and JWT authentication. Built with React Native and Node.js.</p>
+                <img src="message.png" alt="CipherChat">
+                <a href="https://github.com/Dierzeethiopia/Messaging-App" target="_blank" class="btn btn-primary">View Code</a>
+            </div>
+        </div>
+        <div class="modal" id="modal3">
+            <div class="modal-content glass">
+                <span class="close">&times;</span>
+                <h3>Smart Parking System</h3>
+                <p>Real-time parking module with Stripe integration. Built with React and Stripe API.</p>
+                <img src="parking.png" alt="Parking">
+            </div>
+        </div>
+        <div class="modal" id="modal4">
+            <div class="modal-content glass">
+                <span class="close">&times;</span>
+                <h3>Williams Atlas</h3>
+                <p>Advanced pathfinding with optimized Dijkstra's algorithm. Built with Python.</p>
+                <img src="graph.jpg" alt="Atlas">
+                <a href="https://github.com/Dierzeethiopia/The-Williams-Atlas" target="_blank" class="btn btn-primary">View Code</a>
+            </div>
+        </div>
+        <div class="modal" id="modal5">
+            <div class="modal-content glass">
+                <span class="close">&times;</span>
+                <h3>Habesha E-commerce</h3>
+                <p>Full-stack platform for Ethiopian traditional clothing. Built with HTML, CSS, and JavaScript.</p>
+                <img src="commerce.jpg" alt="Commerce">
+                <a href="https://github.com/Dierzeethiopia/VividNest" target="_blank" class="btn btn-primary">View Code</a>
+            </div>
+        </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact glass" data-aos="fade-up">
         <div class="container">
             <h2>Get In Touch</h2>
             <p class="contact-subtitle">Seeking Summer 2026 internships • Open to collaboration</p>
-            
             <div class="contact-grid">
                 <div class="contact-info">
                     <div class="info-item">
                         <i class="fas fa-envelope"></i>
                         <div>
-                            <h4>Email</h4>
-                            <a href="mailto:daa3@williams.edu">daa3@williams.edu</a>
+                            <a href="mailto:daa3@williams.edu" class="contact-link" title="Send Email"><h4>Email</h4></a>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fab fa-linkedin"></i>
                         <div>
-                            <h4>LinkedIn</h4>
-                            <a href="https://linkedin.com/in/dires-a-abatieneh" target="_blank">dires-a-abatieneh</a>
+                            <a href="https://linkedin.com/in/dires-a-abatieneh" class="contact-link" target="_blank" title="View LinkedIn"><h4>LinkedIn</h4></a>
                         </div>
                     </div>
                     <div class="info-item">
                         <i class="fab fa-github"></i>
                         <div>
-                            <h4>GitHub</h4>
-                            <a href="https://github.com/Dierzeethiopia" target="_blank">Dierzeethiopia</a>
+                            <a href="https://github.com/Dierzeethiopia" class="contact-link" target="_blank" title="View GitHub"><h4>GitHub</h4></a>
                         </div>
                     </div>
                 </div>
-
-                <form class="contact-form" id="contactForm">
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email" required>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mgoloazd" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
         </div>
     </section>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
     <!-- Footer -->
-    <footer>
+    <footer class="glass">
         <p>&copy; 2025 Dires Sabatieneh. All rights reserved.</p>
     </footer>
 
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
