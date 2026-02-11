@@ -185,6 +185,7 @@ body.dark {
     0% { transform: translateY(0);}
     100% { transform: translateY(-18px);}
 }
+
 @keyframes hero-glow {
     0% { box-shadow: 0 0 32px 4px var(--primary), 0 0 0 8px rgba(79,140,255,0.15);}
     100% { box-shadow: 0 0 48px 12px var(--accent), 0 0 0 16px rgba(255,179,71,0.12);}
@@ -520,6 +521,19 @@ footer {
     100% { transform: translateY(-24px);}
 }
 .contact-subtitle {
-    color: #ffb347 !important; /* Amber */
-    font-weight: 600;
+    color: #0318f9;
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: linear-gradient(90deg, #00ff04 0%, #ff0202 100%);
+    padding: 0.7rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(255,179,71,0.15);
+    display: inline-block;
+    letter-spacing: 0.5px;
+    animation: subtitle-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes subtitle-glow {
+    0% { box-shadow: 0 2px 12px rgba(20, 163, 235, 0.15); }
+    100% { box-shadow: 0 4px 24px rgba(255,179,71,0.35); }
 }
