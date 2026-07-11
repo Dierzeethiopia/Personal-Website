@@ -3,92 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dires Sabatieneh - Software Engineer</title>
-    <meta name="description" content="CS & Math student at Williams College | Full-stack Developer | AI Enthusiast">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Dires Abatieneh - Software Engineer & Computer Science Student</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- AOS for animations -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Dark Mode Toggle -->
-    <button id="darkModeToggle" title="Toggle dark mode"><i class="fas fa-moon"></i></button>
-
     <!-- Navigation -->
-    <nav class="navbar glass">
+    <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="nav-logo">DA</a>
-            <div class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
+            <a href="#home" class="logo">DA.</a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
             <button class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section id="home" class="hero parallax" data-aos="fade-in">
-        <div class="hero-content">
-            <img src="home.jpg" alt="Dires" class="hero-img" data-aos="zoom-in">
-            <h1 data-aos="fade-up">Dires Abebe Abatieneh</h1>
-            <p class="subtitle" data-aos="fade-up" data-aos-delay="100">Computer Science & Math Student | AI & Software Engineer
+    <!-- Hero Section - PREMIUM CREATIVE -->
+    <section id="home" class="hero">
+        <!-- Animated background elements -->
+        <div class="stars"></div>
+        <div class="particles"></div>
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
 
-</p>
-            <p class="tagline" data-aos="fade-up" data-aos-delay="200">Building scalable solutions with modern technology</p>
-            <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
-                <a href="#projects" class="btn btn-primary">View Work</a>
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-greeting">
+                        <span class="greeting-dot"></span>
+                        <p>Welcome to my digital space</p>
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="title-word word-1">Dires</span>
+                        <span class="title-word word-2">Abatieneh</span>
+                    </h1>
+
+                    <p class="hero-subtitle">Software Engineer & Computer Science Student</p>
+
+                    <p class="hero-description">Crafting elegant solutions at the intersection of design and systems thinking. Building the future through innovative code and creative problem-solving.</p>
+
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary glass-effect">
+                            <span class="btn-text">View My Work</span>
+                            <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                        </a>
+                        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+                    </div>
+                </div>
+
+                <!-- Hero Visual with floating elements -->
+                <div class="hero-visual">
+                    <div class="profile-section">
+                        <!-- Floating background elements -->
+                        <div class="floating-orbit orbit-1">
+                            <div class="orbit-item item-1">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="orbit-item item-2">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="orbit-item item-3">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                        </div>
+
+                        <!-- Profile Image with glow -->
+                        <div class="profile-image-wrapper">
+                            <div class="image-glow"></div>
+                            <div class="image-frame">
+                                <img src="profile.jpg" alt="Dires Abatieneh" class="profile-img">
+                                <div class="image-overlay"></div>
+                            </div>
+                        </div>
+
+                        <!-- Floating info cards -->
+                        <div class="floating-card card-1 glass-effect">
+                            <div class="card-content">
+                                <i class="fas fa-lightbulb"></i>
+                                <p>Creative Solutions</p>
+                            </div>
+                        </div>
+
+                        <div class="floating-card card-2 glass-effect">
+                            <div class="card-content">
+                                <i class="fas fa-zap"></i>
+                                <p>High Performance</p>
+                            </div>
+                        </div>
+
+                        <div class="floating-card card-3 glass-effect">
+                            <div class="card-content">
+                                <i class="fas fa-star"></i>
+                                <p>Premium Quality</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="social-icons" data-aos="fade-up" data-aos-delay="400">
-                <a href="https://github.com/Dierzeethiopia" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/dires-a-abatieneh" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:daa3@williams.edu"><i class="fas fa-envelope"></i></a>
+
+            <!-- Scroll indicator -->
+            <div class="hero-scroll">
+                <p>Scroll to explore</p>
+                <div class="scroll-indicator">
+                    <div class="scroll-dot"></div>
+                </div>
             </div>
         </div>
-        <div class="hero-bg-shape"></div>
-        <div class="hero-decor">
-          <span class="dot dot1"></span>
-          <span class="dot dot2"></span>
-          <span class="dot dot3"></span>
-          <span class="dot dot4"></span>
-        </div>
+
+        <!-- Decorative lines -->
+        <div class="corner-accent top-left"></div>
+        <div class="corner-accent bottom-right"></div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="about glass" data-aos="fade-up">
+    <!-- About Section -->
+    <section id="about" class="about">
         <div class="container">
-            <h2>About Me</h2>
-            <div class="about-grid">
+            <div class="about-header">
+                <span class="section-label">About Me</span>
+                <h2 class="section-title">Who I Am</h2>
+            </div>
+
+            <div class="about-content">
                 <div class="about-text">
-                    <p>Second-year Computer Science and Mathematics student at Williams College with passion for software engineering and AI.</p>
-                    <p>I build full-stack applications, explore machine learning, and love solving complex problems with clean code.</p>
-                    <a href="/Dires_Abatieneh_Resume.pdf" download class="btn btn-outline">Download Resume</a>
+                    <p>I'm passionate about creating innovative solutions that blend technical excellence with user-centric design. With experience in full-stack development, system architecture, and emerging technologies, I focus on building products that make a real impact.</p>
+                    <p>My journey spans from distributed systems at scale to intimate UI interactions. I believe the best engineering happens at the intersection of creativity and precision.</p>
+                    <a href="#contact" class="btn btn-primary">Let's Work Together</a>
                 </div>
-                <div class="about-skills">
-                    <img src="profile.jpg" alt="Profile">
-                    <div class="skills">
-                        <div class="skill-group">
-                            <h4>Languages</h4>
-                            <div class="skill-bar" data-skill="Python"></div>
-                            <div class="skill-bar" data-skill="Java"></div>
-                            <div class="skill-bar" data-skill="JavaScript"></div>
-                            <div class="skill-bar" data-skill="TypeScript"></div>
-                            <div class="skill-bar" data-skill="C#"></div>
-                            <div class="skill-bar" data-skill="SQL"></div>
+
+                <div class="skills-grid">
+                    <div class="skill-group">
+                        <h3>Languages</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">TypeScript</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">Java</span>
+                            <span class="skill-tag">Go</span>
                         </div>
-                        <div class="skill-group">
-                            <h4>Tech Stack</h4>
-                            <div class="skill-bar" data-skill="React"></div>
-                            <div class="skill-bar" data-skill="Node.js"></div>
-                            <div class="skill-bar" data-skill="MongoDB"></div>
-                            <div class="skill-bar" data-skill="Express"></div>
-                            <div class="skill-bar" data-skill="Socket.io"></div>
-                            <div class="skill-bar" data-skill="Next.js"></div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Frontend</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Next.js</span>
+                            <span class="skill-tag">Tailwind</span>
+                            <span class="skill-tag">CSS3</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Backend</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Redis</span>
+                        </div>
+                    </div>
+
+                    <div class="skill-group">
+                        <h3>Systems</h3>
+                        <div class="skill-list">
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">Kubernetes</span>
+                            <span class="skill-tag">CI/CD</span>
                         </div>
                     </div>
                 </div>
@@ -96,157 +186,236 @@
         </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="projects" data-aos="fade-up">
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
         <div class="container">
-            <h2>Featured Projects</h2>
+            <div class="experience-header">
+                <span class="section-label">My Journey</span>
+                <h2 class="section-title">Professional Experience</h2>
+            </div>
+
+            <div class="experience-timeline">
+                <!-- Slack Experience -->
+                <div class="experience-item">
+                    <div class="experience-marker"></div>
+                    <div class="experience-content glass-effect">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Software Engineering Intern</h3>
+                            <p class="experience-company">Slack Technologies / Salesforce</p>
+                            <p class="experience-date">June – August 2026 | San Francisco, CA</p>
+                        </div>
+
+                        <div class="experience-story">
+                            <div class="story-intro">
+                                <strong>Context:</strong> Contributed to a platform serving <span class="highlight-stat">47M+ Daily Active Users</span> through robust asynchronous systems and observability frameworks.
+                            </div>
+
+                            <div class="highlights-section">
+                                <h4>Key Accomplishments</h4>
+                                <ul class="experience-achievements">
+                                    <li>Architected <strong>asynchronous notification pipeline</strong> using Strategy Pattern, improving system flexibility for 5+ internal services</li>
+                                    <li>Authored comprehensive <strong>technical design document</strong> for core infrastructure component, adopted as team standard</li>
+                                    <li>Built <strong>telemetry & observability framework</strong> reducing MTTR by 40% through structured logging and metrics</li>
+                                    <li>Collaborated with senior engineers on code reviews and architecture decisions for critical path systems</li>
+                                </ul>
+                            </div>
+
+                            <div class="what-i-learned">
+                                <strong>🧠 What I Learned:</strong>
+                                Deep dive into distributed systems design, the importance of observability in production environments, and how elegant abstractions scale beautifully across large codebases.
+                            </div>
+                        </div>
+
+                        <div class="experience-tags">
+                            <span class="tag">PHP/Hack</span>
+                            <span class="tag">Backend Systems</span>
+                            <span class="tag">Infrastructure</span>
+                            <span class="tag">Distributed Systems</span>
+                            <span class="tag">Observability</span>
+                            <span class="tag">Design Patterns</span>
+                            <span class="tag">Telemetry</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guba Experience -->
+                <div class="experience-item">
+                    <div class="experience-marker"></div>
+                    <div class="experience-content glass-effect">
+                        <div class="experience-header">
+                            <h3 class="experience-title">Software Engineering Intern</h3>
+                            <p class="experience-company">Guba Technologies</p>
+                            <p class="experience-date">May – August 2025 | Addis Ababa, Ethiopia</p>
+                        </div>
+
+                        <div class="experience-story">
+                            <div class="story-intro">
+                                <strong>Context:</strong> Built software solutions for Ethiopian businesses, delivering <span class="highlight-stat">30% performance improvement</span> and impacting thousands of users.
+                            </div>
+
+                            <div class="highlights-section">
+                                <h4>Key Accomplishments</h4>
+                                <ul class="experience-achievements">
+                                    <li>Developed <strong>revenue analytics dashboard</strong> (React/TypeScript) providing real-time insights for 100+ merchants</li>
+                                    <li>Optimized database queries and UI rendering, achieving <strong>30% performance improvement</strong> in core metrics</li>
+                                    <li>Designed & implemented features end-to-end: requirements gathering, prototyping, testing, and deployment</li>
+                                    <li>Conducted code reviews and mentored junior developers on modern frontend best practices</li>
+                                </ul>
+                            </div>
+
+                            <div class="what-i-learned">
+                                <strong>🧠 What I Learned:</strong>
+                                The power of user-focused development, how to balance performance with feature velocity, and the satisfaction of building tools that directly impact real businesses and their success.
+                            </div>
+                        </div>
+
+                        <div class="experience-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">TypeScript</span>
+                            <span class="tag">Performance</span>
+                            <span class="tag">Analytics</span>
+                            <span class="tag">Full-Stack</span>
+                            <span class="tag">Frontend</span>
+                            <span class="tag">Database Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="projects-header">
+                <span class="section-label">Featured Work</span>
+                <h2 class="section-title">My Projects</h2>
+            </div>
+
             <div class="projects-grid">
-                <!-- Each card gets a data-modal attribute for modal popups -->
-                <div class="project-card glass" data-modal="modal1">
-                    <img src="bookxchange.png" alt="BookXchange">
-                    <h3>Campus BookXchange</h3>
-                    <p>Full-stack marketplace for students to buy/sell/share books</p>
-                    <div class="tags">
-                        <span>Java</span>
-                        <span>React</span>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="graph.jpg" alt="BookXchange">
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="https://github.com" class="overlay-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="overlay-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="https://github.com/Dierzeethiopia/Book-Exchange-System" target="_blank" class="project-link">View Code →</a>
-                </div>
-                <div class="project-card glass" data-modal="modal2">
-                    <img src="message.png" alt="CipherChat">
-                    <h3>CipherChat</h3>
-                    <p>Real-time encrypted messaging with AES encryption & JWT auth</p>
-                    <div class="tags">
-                        <span>React Native</span>
-                        <span>Node.js</span>
+                    <div class="project-info">
+                        <h3>Graph Visualization Engine</h3>
+                        <p>Interactive tool for analyzing and visualizing complex network structures with real-time updates and performance optimization.</p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>D3.js</span>
+                            <span>WebGL</span>
+                        </div>
                     </div>
-                    <a href="https://github.com/Dierzeethiopia/Messaging-App" target="_blank" class="project-link">View Code →</a>
                 </div>
-                <div class="project-card glass" data-modal="modal3">
-                    <img src="parking.png" alt="Parking">
-                    <h3>Smart Parking System</h3>
-                    <p>Real-time parking module with Stripe integration</p>
-                    <div class="tags">
-                        <span>React</span>
-                        <span>Stripe API</span>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="commerce.jpg" alt="Commerce Platform">
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="https://github.com" class="overlay-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="overlay-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="#" class="project-link">View Code →</a>
-                </div>
-                <div class="project-card glass" data-modal="modal4">
-                    <img src="graph.jpg" alt="Atlas">
-                    <h3>Williams Atlas</h3>
-                    <p>Advanced pathfinding with optimized Dijkstra's algorithm</p>
-                    <div class="tags">
-                        <span>Python</span>
-                        <span>Algorithms</span>
+                    <div class="project-info">
+                        <h3>E-Commerce Platform</h3>
+                        <p>Full-stack marketplace with real-time inventory, payment integration, and advanced analytics for merchants.</p>
+                        <div class="project-tags">
+                            <span>Next.js</span>
+                            <span>PostgreSQL</span>
+                            <span>Stripe</span>
+                        </div>
                     </div>
-                    <a href="https://github.com/Dierzeethiopia/The-Williams-Atlas" target="_blank" class="project-link">View Code →</a>
                 </div>
-                <div class="project-card glass" data-modal="modal5">
-                    <img src="commerce.jpg" alt="Commerce">
-                    <h3>Habesha E-commerce</h3>
-                    <p>Full-stack platform for Ethiopian traditional clothing</p>
-                    <div class="tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="message.png" alt="Chat Application">
+                        <div class="project-overlay">
+                            <div class="overlay-buttons">
+                                <a href="https://github.com" class="overlay-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="overlay-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <a href="https://github.com/Dierzeethiopia/VividNest" target="_blank" class="project-link">View Code →</a>
+                    <div class="project-info">
+                        <h3>Real-time Chat Application</h3>
+                        <p>Low-latency messaging platform with end-to-end encryption, typing indicators, and intelligent message threading.</p>
+                        <div class="project-tags">
+                            <span>WebSockets</span>
+                            <span>Go</span>
+                            <span>Redis</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <!-- Project Modals -->
-        <div class="modal" id="modal1">
-            <div class="modal-content glass">
-                <span class="close">&times;</span>
-                <h3>Campus BookXchange</h3>
-                <p>Full-stack marketplace for students to buy/sell/share books. Built with Java and React.</p>
-                <img src="bookxchange.png" alt="BookXchange">
-                <a href="https://github.com/Dierzeethiopia/Book-Exchange-System" target="_blank" class="btn btn-primary">View Code</a>
-            </div>
-        </div>
-        <div class="modal" id="modal2">
-            <div class="modal-content glass">
-                <span class="close">&times;</span>
-                <h3>CipherChat</h3>
-                <p>Real-time encrypted messaging app with AES encryption and JWT authentication. Built with React Native and Node.js.</p>
-                <img src="message.png" alt="CipherChat">
-                <a href="https://github.com/Dierzeethiopia/Messaging-App" target="_blank" class="btn btn-primary">View Code</a>
-            </div>
-        </div>
-        <div class="modal" id="modal3">
-            <div class="modal-content glass">
-                <span class="close">&times;</span>
-                <h3>Smart Parking System</h3>
-                <p>Real-time parking module with Stripe integration. Built with React and Stripe API.</p>
-                <img src="parking.png" alt="Parking">
-            </div>
-        </div>
-        <div class="modal" id="modal4">
-            <div class="modal-content glass">
-                <span class="close">&times;</span>
-                <h3>Williams Atlas</h3>
-                <p>Advanced pathfinding with optimized Dijkstra's algorithm. Built with Python.</p>
-                <img src="graph.jpg" alt="Atlas">
-                <a href="https://github.com/Dierzeethiopia/The-Williams-Atlas" target="_blank" class="btn btn-primary">View Code</a>
-            </div>
-        </div>
-        <div class="modal" id="modal5">
-            <div class="modal-content glass">
-                <span class="close">&times;</span>
-                <h3>Habesha E-commerce</h3>
-                <p>Full-stack platform for Ethiopian traditional clothing. Built with HTML, CSS, and JavaScript.</p>
-                <img src="commerce.jpg" alt="Commerce">
-                <a href="https://github.com/Dierzeethiopia/VividNest" target="_blank" class="btn btn-primary">View Code</a>
             </div>
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact glass" data-aos="fade-up">
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
         <div class="container">
-            <h2>Get In Touch</h2>
-            <p class="contact-subtitle">Seeking Summer 2026 internships • Open to collaboration</p>
-            <div class="contact-grid">
+            <div class="contact-header">
+                <span class="section-label">Get in Touch</span>
+                <h2 class="section-title">Let's Create Something Amazing</h2>
+                <p class="contact-subtitle">I'm always interested in hearing about new projects and opportunities.</p>
+            </div>
+
+            <div class="contact-content">
                 <div class="contact-info">
-                    <div class="info-item">
+                    <div class="contact-item glass-effect">
                         <i class="fas fa-envelope"></i>
                         <div>
-                            <a href="mailto:daa3@williams.edu" class="contact-link" title="Send Email"><h4>Email</h4></a>
+                            <h4>Email</h4>
+                            <a href="mailto:diressabebe23@gmail.com">diressabebe23@gmail.com</a>
                         </div>
                     </div>
-                    <div class="info-item">
-                        <i class="fab fa-linkedin"></i>
+
+                    <div class="contact-item glass-effect">
+                        <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <a href="https://linkedin.com/in/dires-a-abatieneh" class="contact-link" target="_blank" title="View LinkedIn"><h4>LinkedIn</h4></a>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <i class="fab fa-github"></i>
-                        <div>
-                            <a href="https://github.com/Dierzeethiopia" class="contact-link" target="_blank" title="View GitHub"><h4>GitHub</h4></a>
+                            <h4>Location</h4>
+                            <p>San Francisco, CA</p>
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/mgoloazd" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
+
+                <div class="social-links-contact">
+                    <a href="https://github.com/Dierzeethiopia" class="social-link-contact glass-effect">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/dires-a-abatieneh/" class="social-link-contact glass-effect">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Back to Top Button -->
-    <button id="backToTop" title="Back to top"><i class="fas fa-arrow-up"></i></button>
-
     <!-- Footer -->
-    <footer class="glass">
-        <p>&copy; 2025 Dires Sabatieneh. All rights reserved.</p>
+    <footer class="footer">
+        <p>&copy; 2026 Dires Abatieneh. Crafted with <span style="color: #ff6b9d;">♥</span> and code.</p>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
