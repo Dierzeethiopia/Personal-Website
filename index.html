@@ -76,6 +76,44 @@
         .dark .glow-sphere {
             opacity: 0.22;
         }
+        /* Immersive photography with a readable overlay for portfolio content. */
+        .photo-bg {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .photo-city {
+            background-image: linear-gradient(rgba(248, 250, 252, 0.66), rgba(248, 250, 252, 0.76)), url('https://images.unsplash.com/photo-1523807010671-a587c2fba288?auto=format&fit=crop&w=2400&q=85');
+        }
+        .photo-code {
+            background-image: linear-gradient(rgba(248, 250, 252, 0.64), rgba(248, 250, 252, 0.75)), url('https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&w=2400&q=85');
+        }
+        .photo-city-lights {
+            background-image: linear-gradient(rgba(248, 250, 252, 0.65), rgba(248, 250, 252, 0.76)), url('https://images.unsplash.com/photo-1692213922174-4dd1d9a95dc5?auto=format&fit=crop&w=2400&q=85');
+        }
+        .dark .photo-city {
+            background-image: linear-gradient(rgba(9, 13, 22, 0.60), rgba(9, 13, 22, 0.74)), url('https://images.unsplash.com/photo-1523807010671-a587c2fba288?auto=format&fit=crop&w=2400&q=85');
+        }
+        .dark .photo-code {
+            background-image: linear-gradient(rgba(9, 13, 22, 0.62), rgba(9, 13, 22, 0.75)), url('https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?auto=format&fit=crop&w=2400&q=85');
+        }
+        .dark .photo-city-lights {
+            background-image: linear-gradient(rgba(9, 13, 22, 0.60), rgba(9, 13, 22, 0.74)), url('https://images.unsplash.com/photo-1692213922174-4dd1d9a95dc5?auto=format&fit=crop&w=2400&q=85');
+        }
+        .company-logo {
+            width: 2.75rem;
+            height: 2.75rem;
+            object-fit: contain;
+            padding: 0.45rem;
+            border-radius: 0.8rem;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+        }
+        .dark .company-logo {
+            background: rgba(15, 23, 42, 0.9);
+            border-color: rgba(148, 163, 184, 0.2);
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-darkBg dark:text-slate-100 font-sans transition-colors duration-300 relative overflow-x-hidden">
@@ -137,7 +175,7 @@
     </header>
 
     <!-- Home / Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center pt-28 pb-16 z-20">
+    <section id="home" class="photo-bg photo-city relative min-h-screen flex items-center pt-28 pb-16 z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
@@ -294,7 +332,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-24 bg-slate-100/50 dark:bg-slate-900/15 relative z-20">
+    <section id="experience" class="photo-bg photo-code py-24 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
@@ -313,9 +351,15 @@
                     
                     <div class="bg-white dark:bg-slate-900/60 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Software Engineer Intern (Backend Infrastructure)</h3>
-                                <p class="text-brand-500 font-semibold text-sm">Slack / Salesforce • USA (Remote)</p>
+                            <div class="flex items-center gap-3">
+                                <div class="flex -space-x-2 shrink-0" aria-label="Slack and Salesforce logos">
+                                    <img class="company-logo" src="https://api.iconify.design/logos:slack-icon.svg" alt="Slack logo">
+                                    <img class="company-logo" src="https://api.iconify.design/logos:salesforce.svg" alt="Salesforce logo">
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Software Engineer Intern (Backend Infrastructure)</h3>
+                                    <p class="text-brand-500 font-semibold text-sm">Slack / Salesforce • USA (Remote)</p>
+                                </div>
                             </div>
                             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-500 border border-brand-500/20 mt-2 sm:mt-0 self-start">
                                 <i class="fa-regular fa-calendar-days"></i> June 2026 - Present
@@ -354,9 +398,12 @@
                     
                     <div class="bg-white dark:bg-slate-900/60 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Software Engineer Intern</h3>
-                                <p class="text-accent-500 font-semibold text-sm">Guba Technologies • Addis Ababa, Ethiopia</p>
+                            <div class="flex items-center gap-3">
+                                <img class="company-logo shrink-0" src="https://www.google.com/s2/favicons?domain=gubatech.com&sz=128" alt="Guba Technologies logo">
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Software Engineer Intern</h3>
+                                    <p class="text-accent-500 font-semibold text-sm">Guba Technologies • Addis Ababa, Ethiopia</p>
+                                </div>
                             </div>
                             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-200/60 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 border border-slate-300/20 mt-2 sm:mt-0 self-start">
                                 <i class="fa-regular fa-calendar-days"></i> May - Aug 2025
@@ -394,9 +441,12 @@
                     
                     <div class="bg-white dark:bg-slate-900/60 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm hover:shadow-md transition-shadow">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Founder & Full-Stack Engineer</h3>
-                                <p class="text-emerald-500 font-semibold text-sm">Arada Academy • Global EdTech</p>
+                            <div class="flex items-center gap-3">
+                                <div class="company-logo shrink-0 flex items-center justify-center bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-extrabold text-lg" aria-label="Arada Academy logo">A</div>
+                                <div>
+                                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Founder & Full-Stack Engineer</h3>
+                                    <p class="text-emerald-500 font-semibold text-sm">Arada Academy • Global EdTech</p>
+                                </div>
                             </div>
                             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-200/60 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 border border-slate-300/20 mt-2 sm:mt-0 self-start">
                                 <i class="fa-regular fa-calendar-days"></i> July 2024 - Present
@@ -540,7 +590,7 @@
     </section>
 
     <!-- Fellowships Section -->
-    <section id="fellowships" class="py-24 bg-slate-100/50 dark:bg-slate-900/15 relative z-20">
+    <section id="fellowships" class="photo-bg photo-city-lights py-24 relative z-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
@@ -556,6 +606,7 @@
                 <!-- Code2040 -->
                 <div class="bg-white dark:bg-slate-900/60 p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 flex flex-col justify-between">
                     <div>
+                        <img class="company-logo mb-4" src="https://www.google.com/s2/favicons?domain=code2040.org&sz=128" alt="Code2040 logo">
                         <span class="text-xs font-semibold uppercase tracking-wider text-accent-500">Nationwide</span>
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1 mb-2">Code2040 Fellow</h3>
                         <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Eminent program supporting Black and Latinx computer scientists in user-centered design, hackathons, and executive networking.</p>
@@ -568,6 +619,7 @@
                 <!-- AI4All Ignite -->
                 <div class="bg-white dark:bg-slate-900/60 p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 flex flex-col justify-between">
                     <div>
+                        <img class="company-logo mb-4" src="https://www.google.com/s2/favicons?domain=ai-4-all.org&sz=128" alt="AI4All logo">
                         <span class="text-xs font-semibold uppercase tracking-wider text-emerald-500">Artificial Intelligence</span>
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1 mb-2">AI4All Ignite</h3>
                         <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Ethics-centered deep dive studying deep neural structures, ethical implications, and global collaborative problem solving.</p>
@@ -580,6 +632,7 @@
                 <!-- Keploy API Fellowship -->
                 <div class="bg-white dark:bg-slate-900/60 p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 flex flex-col justify-between">
                     <div>
+                        <img class="company-logo mb-4" src="https://www.google.com/s2/favicons?domain=keploy.io&sz=128" alt="Keploy logo">
                         <span class="text-xs font-semibold uppercase tracking-wider text-amber-500">API Testing</span>
                         <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1 mb-2">Keploy API Fellow</h3>
                         <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Highly selective fellow placement (Top 5% Applicants) focused on open-source scaling and high performance mock backend generations.</p>
