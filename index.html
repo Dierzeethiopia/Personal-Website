@@ -1,184 +1,291 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dires Abatieneh - Software Engineer & Computer Science Student</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <title>Dires Abatieneh | Personal Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config for premium theme styles -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0ea5e9', // Cyber Cyan
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            900: '#0c4a6e',
+                        },
+                        accent: {
+                            500: '#6366f1', // Indigo Glow
+                            600: '#4f46e5',
+                        },
+                        darkBg: '#090d16',
+                        darkCard: '#111827',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar configurations */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.05);
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.3);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(14, 165, 233, 0.3);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(14, 165, 233, 0.6);
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(14, 165, 233, 0.4);
+        }
+        .text-glow-accent {
+            text-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+        }
+        /* Custom elegant background glows */
+        .glow-sphere {
+            filter: blur(140px);
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .dark .glow-sphere {
+            opacity: 0.22;
+        }
+    </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">DA.</a>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <button class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </button>
+<body class="bg-slate-50 text-slate-800 dark:bg-darkBg dark:text-slate-100 font-sans transition-colors duration-300 relative overflow-x-hidden">
+
+    <!-- Ambient glowing backgrounds -->
+    <div class="fixed top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-brand-500 glow-sphere z-0"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-accent-500 glow-sphere z-0"></div>
+
+    <!-- Canvas for interactive background particles -->
+    <canvas id="particleCanvas" class="fixed inset-0 w-full h-full pointer-events-none z-10 opacity-60"></canvas>
+
+    <!-- Header/Navigation Bar -->
+    <header class="fixed top-0 inset-x-0 z-50 transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <nav class="flex items-center justify-between bg-white/75 dark:bg-darkBg/75 backdrop-blur-md py-3 px-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm transition-all duration-300">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-2 font-bold text-xl tracking-tight text-slate-900 dark:text-white hover:opacity-90 transition-opacity">
+                    <span class="bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent">Dires</span>
+                    <span class="text-xs px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-500 font-semibold border border-brand-500/20">CS & Math</span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden lg:flex items-center gap-1">
+                    <a href="#home" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-brand-500 bg-brand-500/5 dark:bg-brand-500/10">Home</a>
+                    <a href="#education" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-500">Education</a>
+                    <a href="#experience" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-500">Experience</a>
+                    <a href="#projects" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-500">Projects</a>
+                    <a href="#fellowships" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-500">Fellowships</a>
+                    <a href="#leadership" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-500">Leadership</a>
+                    <a href="#skills" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-500">Skills</a>
+                    <a href="#contact" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-500">Contact</a>
+                </div>
+
+                <!-- Right actions: Dark Mode & Menu Toggle -->
+                <div class="flex items-center gap-3">
+                    <button id="themeToggleBtn" aria-label="Toggle Theme" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-500 dark:hover:text-brand-500 transition-all border border-slate-200/50 dark:border-slate-700/50">
+                        <i id="themeToggleIcon" class="fa-solid fa-moon text-lg"></i>
+                    </button>
+                    <button id="mobileMenuBtn" aria-label="Toggle Mobile Menu" class="lg:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-all border border-slate-200/50 dark:border-slate-700/50">
+                        <i id="mobileMenuIcon" class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </nav>
         </div>
-    </nav>
 
-    <!-- Hero Section - PREMIUM CREATIVE -->
-    <section id="home" class="hero">
-        <!-- Animated background elements -->
-        <div class="stars"></div>
-        <div class="particles"></div>
-        <div class="gradient-orb orb-1"></div>
-        <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
+        <!-- Mobile Dropdown Navigation Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden px-4 pb-4">
+            <div class="bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/60 rounded-2xl p-4 flex flex-col gap-2 shadow-xl backdrop-blur-lg">
+                <a href="#home" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium transition-all bg-brand-500/10 text-brand-500">Home</a>
+                <a href="#education" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50">Education</a>
+                <a href="#experience" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50">Experience</a>
+                <a href="#projects" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50">Projects</a>
+                <a href="#fellowships" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50">Fellowships</a>
+                <a href="#leadership" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50">Leadership</a>
+                <a href="#skills" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50">Skills</a>
+                <a href="#contact" class="mobile-nav-link block px-4 py-2.5 rounded-xl text-base font-medium transition-all text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50">Contact</a>
+            </div>
+        </div>
+    </header>
 
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="hero-greeting">
-                        <span class="greeting-dot"></span>
-                        <p>Welcome to my digital space</p>
+    <!-- Home / Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center pt-28 pb-16 z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Details Column -->
+                <div class="lg:col-span-7 flex flex-col space-y-6 text-left">
+                    <div class="inline-flex items-center gap-2 bg-brand-500/10 text-brand-500 px-4 py-1.5 rounded-full border border-brand-500/20 text-sm font-semibold max-w-max">
+                        <i class="fa-solid fa-sparkles animate-pulse"></i> SWE @ Slack / Salesforce
                     </div>
-
-                    <h1 class="hero-title">
-                        <span class="title-word word-1">Dires</span>
-                        <span class="title-word word-2">Abatieneh</span>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight">
+                        Hi, I'm <span class="bg-gradient-to-r from-brand-500 via-indigo-400 to-accent-500 bg-clip-text text-transparent text-glow">Dires Abatieneh</span>
                     </h1>
+                    
+                    <!-- Dynamic Typing Text Block -->
+                    <h2 class="text-2xl sm:text-3xl font-medium text-slate-600 dark:text-slate-300 min-h-[40px]">
+                        I build <span id="typingText" class="text-brand-500 font-semibold border-r-2 border-brand-500 pr-1 animate-pulse"></span>
+                    </h2>
 
-                    <p class="hero-subtitle">Software Engineer & Computer Science Student</p>
+                    <n class="text-base sm:text-lg text-slate-500 dark:text-slate-400 max-w-xl leading-relaxed">
+                        Computer Science & Mathematics major at Williams College. </n>
+                        Aspiring SWE and AI Engineer!
+                    </p>
 
-                    <p class="hero-description">Crafting elegant solutions at the intersection of design and systems thinking. Building the future through innovative code and creative problem-solving.</p>
-
-                    <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary glass-effect">
-                            <span class="btn-text">View My Work</span>
-                            <span class="btn-icon"><i class="fas fa-arrow-right"></i></span>
+                    <!-- Interactive Call to Action buttons -->
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#experience" class="px-6 py-3.5 rounded-xl font-medium bg-gradient-to-r from-brand-500 to-accent-500 text-white shadow-lg shadow-brand-500/25 hover:shadow-brand-500/40 hover:-translate-y-0.5 transition-all flex items-center gap-2 group">
+                            <span>View My Experience</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
                         </a>
-                        <a href="#contact" class="btn btn-outline">Get in Touch</a>
+                        <a href="#contact" class="px-6 py-3.5 rounded-xl font-medium bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+                            <span>Get in Touch</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </a>
+                    </div>
+
+                    <!-- Social / Dev Profiles Icons -->
+                    <div class="flex items-center gap-5 pt-6 text-slate-400 dark:text-slate-500">
+                        <a href="https://github.com/Dierzeethiopia" target="_blank" class="hover:text-brand-500 dark:hover:text-brand-500 transition-colors text-2xl" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="http://www.linkedin.com/in/dires-a-abatieneh" target="_blank" class="hover:text-brand-500 dark:hover:text-brand-500 transition-colors text-2xl" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:daa3@williams.edu" class="hover:text-brand-500 dark:hover:text-brand-500 transition-colors text-2xl" aria-label="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
                     </div>
                 </div>
 
-                <!-- Hero Visual with floating elements -->
-                <div class="hero-visual">
-                    <div class="profile-section">
-                        <!-- Floating background elements -->
-                        <div class="floating-orbit orbit-1">
-                            <div class="orbit-item item-1">
-                                <i class="fas fa-code"></i>
-                            </div>
-                            <div class="orbit-item item-2">
-                                <i class="fas fa-brain"></i>
-                            </div>
-                            <div class="orbit-item item-3">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                        </div>
-
-                        <!-- Profile Image with glow -->
-                        <div class="profile-image-wrapper">
-                            <div class="image-glow"></div>
-                            <div class="image-frame">
-                                <img src="profile.jpg" alt="Dires Abatieneh" class="profile-img">
-                                <div class="image-overlay"></div>
-                            </div>
-                        </div>
-
-                        <!-- Floating info cards -->
-                        <div class="floating-card card-1 glass-effect">
-                            <div class="card-content">
-                                <i class="fas fa-lightbulb"></i>
-                                <p>Creative Solutions</p>
-                            </div>
-                        </div>
-
-                        <div class="floating-card card-2 glass-effect">
-                            <div class="card-content">
-                                <i class="fas fa-zap"></i>
-                                <p>High Performance</p>
-                            </div>
-                        </div>
-
-                        <div class="floating-card card-3 glass-effect">
-                            <div class="card-content">
-                                <i class="fas fa-star"></i>
-                                <p>Premium Quality</p>
+                <!-- Right Visual Profile Art Column -->
+                <div class="lg:col-span-5 flex justify-center items-center relative">
+                    <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-tr from-brand-500 to-accent-500 p-1">
+                        <div class="w-full h-full bg-white dark:bg-darkBg rounded-[22px] flex items-center justify-center overflow-hidden relative">
+                            <!-- Code Visualizer -->
+                            <div class="absolute inset-4 rounded-xl bg-slate-50 dark:bg-slate-900/60 p-5 flex flex-col justify-between border border-slate-200/50 dark:border-slate-800/50 shadow-inner">
+                                <div class="flex items-center justify-between border-b border-slate-200/60 dark:border-slate-800 pb-3">
+                                    <div class="flex gap-1.5">
+                                        <span class="w-3 h-3 rounded-full bg-red-400 animate-pulse"></span>
+                                        <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                                        <span class="w-3 h-3 rounded-full bg-green-400"></span>
+                                    </div>
+                                    <span class="text-xs font-mono text-slate-400">NotificationPipeline.java</span>
+                                </div>
+                                <div class="font-mono text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 space-y-2 py-4 flex-grow overflow-hidden select-none">
+                                    <p class="text-indigo-500"><span class="text-brand-500">public class</span> NotificationManager {</p>
+                                    <p class="pl-4 text-emerald-500">// Utilizes Strategy Pattern for Slack API</p>
+                                    <p class="pl-4"><span class="text-brand-500">private final</span> DeliveryPolicy policy;</p>
+                                    <p class="pl-4"><span class="text-brand-500">public void</span> dispatch(User u) {</p>
+                                    <p class="pl-8">policy.process(u.getMetadata());</p>
+                                    <p class="pl-8 text-slate-400">// Asynchronous delayed delivery</p>
+                                    <p class="pl-4">}</p>
+                                    <p class="text-indigo-500">}</p>
+                                </div>
+                                <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-200/50 dark:border-slate-800">
+                                    <span>UTF-8</span>
+                                    <span>Line 4, Col 12</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Scroll indicator -->
-            <div class="hero-scroll">
-                <p>Scroll to explore</p>
-                <div class="scroll-indicator">
-                    <div class="scroll-dot"></div>
-                </div>
             </div>
         </div>
-
-        <!-- Decorative lines -->
-        <div class="corner-accent top-left"></div>
-        <div class="corner-accent bottom-right"></div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-header">
-                <span class="section-label">About Me</span>
-                <h2 class="section-title">Who I Am</h2>
+    <!-- Education Section -->
+    <section id="education" class="py-24 border-t border-slate-200/50 dark:border-slate-900/50 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+                    Academic <span class="bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent">Background</span>
+                </h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg">
+                    Blending core Computer Science theories with high-level Mathematics at a premier liberal arts institution.
+                </p>
             </div>
 
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm passionate about creating innovative solutions that blend technical excellence with user-centric design. With experience in full-stack development, system architecture, and emerging technologies, I focus on building products that make a real impact.</p>
-                    <p>My journey spans from distributed systems at scale to intimate UI interactions. I believe the best engineering happens at the intersection of creativity and precision.</p>
-                    <a href="#contact" class="btn btn-primary">Let's Work Together</a>
+            <!-- College Profile Display -->
+            <div class="bg-white dark:bg-slate-900/60 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 p-8 sm:p-10 shadow-lg hover:shadow-xl transition-all max-w-5xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 pb-8 border-b border-slate-200/50 dark:border-slate-800">
+                    <div class="flex items-center gap-4">
+                        <div class="w-16 h-16 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-accent-500 text-3xl">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Williams College</h3>
+                            <p class="text-slate-500 dark:text-slate-400">Williamstown, Massachusetts, USA</p>
+                        </div>
+                    </div>
+                    <div class="text-left md:text-right">
+                        <span class="inline-block bg-brand-500/10 text-brand-500 border border-brand-500/20 text-sm font-semibold px-4 py-1.5 rounded-full mb-2">
+                            Class of 2028 (Expected)
+                        </span>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 font-medium">B.A. in Computer Science & Mathematics</p>
+                    </div>
                 </div>
 
-                <div class="skills-grid">
-                    <div class="skill-group">
-                        <h3>Languages</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">Go</span>
-                        </div>
+                <!-- Academic Highlights Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
+                    <div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-award text-amber-500"></i> Honors & Achievements
+                        </h4>
+                        <ul class="space-y-3 text-slate-600 dark:text-slate-300">
+                            <li class="flex items-center gap-3">
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                                <span>Dean's List Recognition for Outstanding Academic Performance</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                                <span>2nd Place — Ethiopian National Mathematics Competition</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <div class="skill-group">
-                        <h3>Frontend</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Next.js</span>
-                            <span class="skill-tag">Tailwind</span>
-                            <span class="skill-tag">CSS3</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-group">
-                        <h3>Backend</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">FastAPI</span>
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">Redis</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-group">
-                        <h3>Systems</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">AWS</span>
-                            <span class="skill-tag">Kubernetes</span>
-                            <span class="skill-tag">CI/CD</span>
+                    <div>
+                        <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-book text-brand-500"></i> Relevant Coursework
+                        </h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200/50 dark:border-slate-700/50">Data Structures & Algorithms</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200/50 dark:border-slate-700/50">Distributed Systems</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200/50 dark:border-slate-700/50">Computer Organization</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200/50 dark:border-slate-700/50">Foundations of Artificial Intelligence</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200/50 dark:border-slate-700/50">Unix & Software Tools</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200/50 dark:border-slate-700/50">Discrete Mathematics</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1.5 rounded-lg border border-slate-200/50 dark:border-slate-700/50">Calculus III & Linear Algebra</span>
                         </div>
                     </div>
                 </div>
@@ -187,235 +294,883 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="experience-header">
-                <span class="section-label">My Journey</span>
-                <h2 class="section-title">Professional Experience</h2>
+    <section id="experience" class="py-24 bg-slate-100/50 dark:bg-slate-900/15 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+                    Professional <span class="bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent">Experience</span>
+                </h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg">
+                    Developing mission-critical backend systems and crafting reliable products across global platforms.
+                </p>
             </div>
 
-            <div class="experience-timeline">
-                <!-- Slack Experience -->
-                <div class="experience-item">
-                    <div class="experience-marker"></div>
-                    <div class="experience-content glass-effect">
-                        <div class="experience-header">
-                            <h3 class="experience-title">Software Engineering Intern</h3>
-                            <p class="experience-company">Slack Technologies / Salesforce</p>
-                            <p class="experience-date">June – August 2026 | San Francisco, CA</p>
+            <div class="relative border-l-2 border-slate-200 dark:border-slate-800 max-w-4xl mx-auto pl-6 sm:pl-8 space-y-12">
+                
+                <!-- Slack Internship -->
+                <div class="relative group">
+                    <div class="absolute -left-[39px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-brand-500 border-4 border-white dark:border-darkBg group-hover:scale-125 transition-transform duration-300 shadow-md"></div>
+                    
+                    <div class="bg-white dark:bg-slate-900/60 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Software Engineer Intern (Backend Infrastructure)</h3>
+                                <p class="text-brand-500 font-semibold text-sm">Slack / Salesforce • USA (Remote)</p>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-brand-500/10 text-brand-500 border border-brand-500/20 mt-2 sm:mt-0 self-start">
+                                <i class="fa-regular fa-calendar-days"></i> June 2026 - Present
+                            </span>
                         </div>
-
-                        <div class="experience-story">
-                            <div class="story-intro">
-                                <strong>Context:</strong> Contributed to a platform serving <span class="highlight-stat">47M+ Daily Active Users</span> through robust asynchronous systems and observability frameworks.
-                            </div>
-
-                            <div class="highlights-section">
-                                <h4>Key Accomplishments</h4>
-                                <ul class="experience-achievements">
-                                    <li>Architected <strong>asynchronous notification pipeline</strong> using Strategy Pattern, improving system flexibility for 5+ internal services</li>
-                                    <li>Authored comprehensive <strong>technical design document</strong> for core infrastructure component, adopted as team standard</li>
-                                    <li>Built <strong>telemetry & observability framework</strong> reducing MTTR by 40% through structured logging and metrics</li>
-                                    <li>Collaborated with senior engineers on code reviews and architecture decisions for critical path systems</li>
-                                </ul>
-                            </div>
-
-                            <div class="what-i-learned">
-                                <strong>🧠 What I Learned:</strong>
-                                Deep dive into distributed systems design, the importance of observability in production environments, and how elegant abstractions scale beautifully across large codebases.
-                            </div>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 leading-relaxed">
+                            Developing architectural expansions for Slack's core backend notification systems serving over 47 Million Daily Active Users. Focuses on extensible async notification pipelines, schema generation, and system reliability.
+                        </p>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-sm mb-4">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-500 mt-1"></i>
+                                <span>Designed and delivered an extensible async notification pipeline utilizing the <b>Strategy Pattern</b>, enabling configuration policies without altering core pipelines.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-500 mt-1"></i>
+                                <span>Expanded notification config JSON schemas and code-generation models to output compile-time types for application runtime reliability.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-brand-500 mt-1"></i>
+                                <span>Deployed developer-facing telemetry interfaces alongside unit and integration test coverage for configuration validation.</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">Distributed Systems</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">Object-Oriented Design</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">Strategy Pattern</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">Telemetry</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">Java</span>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="experience-tags">
-                            <span class="tag">PHP/Hack</span>
-                            <span class="tag">Backend Systems</span>
-                            <span class="tag">Infrastructure</span>
-                            <span class="tag">Distributed Systems</span>
-                            <span class="tag">Observability</span>
-                            <span class="tag">Design Patterns</span>
-                            <span class="tag">Telemetry</span>
+                <!-- Guba Technologies -->
+                <div class="relative group">
+                    <div class="absolute -left-[39px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-accent-500 border-4 border-white dark:border-darkBg group-hover:scale-125 transition-transform duration-300 shadow-md"></div>
+                    
+                    <div class="bg-white dark:bg-slate-900/60 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Software Engineer Intern</h3>
+                                <p class="text-accent-500 font-semibold text-sm">Guba Technologies • Addis Ababa, Ethiopia</p>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-200/60 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 border border-slate-300/20 mt-2 sm:mt-0 self-start">
+                                <i class="fa-regular fa-calendar-days"></i> May - Aug 2025
+                            </span>
+                        </div>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 leading-relaxed">
+                            Architected and deployed front-end tracking modules and analytics solutions in support of rapid startup iteration and core business intelligence dashboards.
+                        </p>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-sm mb-4">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1"></i>
+                                <span>Built a responsive React/TypeScript metrics dashboard, optimizing state management hooks to <b>reduce client-side re-rendering times by 30%</b>.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-accent-500 mt-1"></i>
+                                <span>Refactored telemetry schemas, improving detection latency of API regressions under quick weekly Agile sprints.</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">PHP/Hack</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">React</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">TypeScript</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">REST APIs</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">Performance Tuning</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">A/B Testing</span>
+
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Arada Academy -->
+                <div class="relative group">
+                    <div class="absolute -left-[39px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-emerald-500 border-4 border-white dark:border-darkBg group-hover:scale-125 transition-transform duration-300 shadow-md"></div>
+                    
+                    <div class="bg-white dark:bg-slate-900/60 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-white">Founder & Full-Stack Engineer</h3>
+                                <p class="text-emerald-500 font-semibold text-sm">Arada Academy • Global EdTech</p>
+                            </div>
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-slate-200/60 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 border border-slate-300/20 mt-2 sm:mt-0 self-start">
+                                <i class="fa-regular fa-calendar-days"></i> July 2024 - Present
+                            </span>
+                        </div>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 leading-relaxed">
+                            Established an educational gateway helping international applicants match and apply successfully to top global universities.
+                        </p>
+                        <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-sm mb-4">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                                <span>Designed and launched the core platform offering customized admissions reviews and counselor scheduling.</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-500 mt-1"></i>
+                                <span>Supported <b>over 100+ students</b>, leading to fully-funded admissions at high-profile colleges in the U.S.</span>
+                            </li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">.NET/C#</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">Node.js</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">Product Execution</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800/80 text-slate-500 dark:text-slate-400 px-2.5 py-1 rounded-md">Leadership</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Guba Experience -->
-                <div class="experience-item">
-                    <div class="experience-marker"></div>
-                    <div class="experience-content glass-effect">
-                        <div class="experience-header">
-                            <h3 class="experience-title">Software Engineering Intern</h3>
-                            <p class="experience-company">Guba Technologies</p>
-                            <p class="experience-date">May – August 2025 | Addis Ababa, Ethiopia</p>
-                        </div>
-
-                        <div class="experience-story">
-                            <div class="story-intro">
-                                <strong>Context:</strong> Built software solutions for Ethiopian businesses, delivering <span class="highlight-stat">30% performance improvement</span> and impacting thousands of users.
-                            </div>
-
-                            <div class="highlights-section">
-                                <h4>Key Accomplishments</h4>
-                                <ul class="experience-achievements">
-                                    <li>Developed <strong>revenue analytics dashboard</strong> (React/TypeScript) providing real-time insights for 100+ merchants</li>
-                                    <li>Optimized database queries and UI rendering, achieving <strong>30% performance improvement</strong> in core metrics</li>
-                                    <li>Designed & implemented features end-to-end: requirements gathering, prototyping, testing, and deployment</li>
-                                    <li>Conducted code reviews and mentored junior developers on modern frontend best practices</li>
-                                </ul>
-                            </div>
-
-                            <div class="what-i-learned">
-                                <strong>🧠 What I Learned:</strong>
-                                The power of user-focused development, how to balance performance with feature velocity, and the satisfaction of building tools that directly impact real businesses and their success.
-                            </div>
-                        </div>
-
-                        <div class="experience-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">TypeScript</span>
-                            <span class="tag">Performance</span>
-                            <span class="tag">Analytics</span>
-                            <span class="tag">Full-Stack</span>
-                            <span class="tag">Frontend</span>
-                            <span class="tag">Database Design</span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="projects-header">
-                <span class="section-label">Featured Work</span>
-                <h2 class="section-title">My Projects</h2>
+    <section id="projects" class="py-24 border-t border-slate-200/50 dark:border-slate-900/50 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+                    Technical <span class="bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent">Projects</span>
+                </h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg">
+                    Demonstrating end-to-end capabilities through security platforms, relational modeling, and performance optimizations.
+                </p>
             </div>
 
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="graph.jpg" alt="BookXchange">
-                        <div class="project-overlay">
-                            <div class="overlay-buttons">
-                                <a href="https://github.com" class="overlay-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="overlay-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
+            <!-- Filter Controls -->
+            <div class="flex flex-wrap justify-center gap-2 mb-12">
+                <button onclick="filterProjects('all')" class="project-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium transition-all bg-brand-500 text-white shadow-md shadow-brand-500/15">All Systems</button>
+                <button onclick="filterProjects('security')" class="project-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:text-brand-500 dark:hover:text-brand-500">Security & Real-Time</button>
+                <button onclick="filterProjects('web')" class="project-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:text-brand-500 dark:hover:text-brand-500">Web & AI</button>
+                <button onclick="filterProjects('data')" class="project-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:text-brand-500 dark:hover:text-brand-500">Data Structures</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projectsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- CipherChat -->
+                <div class="project-card flex flex-col h-full bg-white dark:bg-slate-900/65 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 hover:border-brand-500/40 dark:hover:border-brand-500/40 shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden" data-category="security">
+                    <div class="h-48 overflow-hidden relative bg-slate-100 dark:bg-slate-950 flex items-center justify-center">
+                        <i class="fa-solid fa-user-shield text-5xl text-brand-500/30 group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="absolute top-4 right-4 bg-brand-500/10 text-brand-500 border border-brand-500/20 text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">E2EE Chat</span>
                     </div>
-                    <div class="project-info">
-                        <h3>Graph Visualization Engine</h3>
-                        <p>Interactive tool for analyzing and visualizing complex network structures with real-time updates and performance optimization.</p>
-                        <div class="project-tags">
-                            <span>React</span>
-                            <span>D3.js</span>
-                            <span>WebGL</span>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-500 transition-colors">CipherChat</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-3">A secure, real-time messaging application using zero-knowledge messaging architectures to guarantee absolute communication confidentiality.</p>
+                        <ul class="space-y-1 text-xs text-slate-500 dark:text-slate-400 mb-4 list-disc pl-4">
+                            <li>AES-256 client-side encryption.</li>
+                            <li>Stateless JWT authentication logic.</li>
+                            <li>Compound MongoDB database indexes.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 mb-6 mt-auto">
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">React Native</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">Socket.io</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">MongoDB</span>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-auto">
+                            <span class="text-xs text-slate-400">Cryptographically Secure</span>
+                            <a href="https://github.com/Dierzeethiopia" target="_blank" class="text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1">
+                                <i class="fa-brands fa-github"></i> Repository
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="commerce.jpg" alt="Commerce Platform">
-                        <div class="project-overlay">
-                            <div class="overlay-buttons">
-                                <a href="https://github.com" class="overlay-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="overlay-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
+                <!-- AdmitStack -->
+                <div class="project-card flex flex-col h-full bg-white dark:bg-slate-900/65 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 hover:border-brand-500/40 dark:hover:border-brand-500/40 shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden" data-category="web">
+                    <div class="h-48 overflow-hidden relative bg-slate-100 dark:bg-slate-950 flex items-center justify-center">
+                        <i class="fa-solid fa-server text-5xl text-indigo-500/30 group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="absolute top-4 right-4 bg-indigo-500/10 text-indigo-500 border border-indigo-500/20 text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">AI Integration</span>
                     </div>
-                    <div class="project-info">
-                        <h3>E-Commerce Platform</h3>
-                        <p>Full-stack marketplace with real-time inventory, payment integration, and advanced analytics for merchants.</p>
-                        <div class="project-tags">
-                            <span>Next.js</span>
-                            <span>PostgreSQL</span>
-                            <span>Stripe</span>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-500 transition-colors">AdmitStack</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-3">A university discovery comparison engine, transforming application search dynamics using artificial intelligence discovery integrations.</p>
+                        <ul class="space-y-1 text-xs text-slate-500 dark:text-slate-400 mb-4 list-disc pl-4">
+                            <li>Refactored modular TypeScript schema.</li>
+                            <li>Redesigned PostgreSQL relational schemas.</li>
+                            <li>Automated code generation workflows.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 mb-6 mt-auto">
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">TypeScript</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">PostgreSQL</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">AI Dev Tools</span>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-auto">
+                            <span class="text-xs text-slate-400">Search Accelerator</span>
+                            <a href="https://github.com/Dierzeethiopia" target="_blank" class="text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1">
+                                <i class="fa-brands fa-github"></i> Repository
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="message.png" alt="Chat Application">
-                        <div class="project-overlay">
-                            <div class="overlay-buttons">
-                                <a href="https://github.com" class="overlay-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="overlay-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
+                <!-- BookXchange -->
+                <div class="project-card flex flex-col h-full bg-white dark:bg-slate-900/65 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 hover:border-brand-500/40 dark:hover:border-brand-500/40 shadow-sm hover:shadow-xl transition-all duration-300 group overflow-hidden" data-category="data">
+                    <div class="h-48 overflow-hidden relative bg-slate-100 dark:bg-slate-950 flex items-center justify-center">
+                        <i class="fa-solid fa-book-open text-5xl text-emerald-500/30 group-hover:scale-110 transition-transform duration-500"></i>
+                        <span class="absolute top-4 right-4 bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Trie Search</span>
                     </div>
-                    <div class="project-info">
-                        <h3>Real-time Chat Application</h3>
-                        <p>Low-latency messaging platform with end-to-end encryption, typing indicators, and intelligent message threading.</p>
-                        <div class="project-tags">
-                            <span>WebSockets</span>
-                            <span>Go</span>
-                            <span>Redis</span>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-brand-500 transition-colors">BookXchange</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm mb-4 line-clamp-3">A campus-focused book exchange marketplace, hosting over 2,000 active student textbook transactional requests.</p>
+                        <ul class="space-y-1 text-xs text-slate-500 dark:text-slate-400 mb-4 list-disc pl-4">
+                            <li>Trie data structure search routing.</li>
+                            <li>Robust Java API backend pipelines.</li>
+                            <li>ACID compliant relational storage.</li>
+                        </ul>
+                        <div class="flex flex-wrap gap-1.5 mb-6 mt-auto">
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">Java</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">MySQL</span>
+                            <span class="text-xs bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">React</span>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-auto">
+                            <span class="text-xs text-slate-400">Prefix Match Engine</span>
+                            <a href="https://github.com/Dierzeethiopia" target="_blank" class="text-sm font-medium text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors flex items-center gap-1">
+                                <i class="fa-brands fa-github"></i> Repository
+                            </a>
                         </div>
                     </div>
                 </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Fellowships Section -->
+    <section id="fellowships" class="py-24 bg-slate-100/50 dark:bg-slate-900/15 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+                    Fellowships & <span class="bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent">Recognitions</span>
+                </h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg">
+                    Selected for elite engineering programs and national tech fellowships celebrating leadership and capability.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Code2040 -->
+                <div class="bg-white dark:bg-slate-900/60 p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-accent-500">Nationwide</span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1 mb-2">Code2040 Fellow</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Eminent program supporting Black and Latinx computer scientists in user-centered design, hackathons, and executive networking.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-400 font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-circle-check text-accent-500"></i> Tech Catalyst
+                    </div>
+                </div>
+
+                <!-- AI4All Ignite -->
+                <div class="bg-white dark:bg-slate-900/60 p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-500">Artificial Intelligence</span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1 mb-2">AI4All Ignite</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Ethics-centered deep dive studying deep neural structures, ethical implications, and global collaborative problem solving.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-400 font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-circle-check text-emerald-500"></i> Ethical AI Researcher
+                    </div>
+                </div>
+
+                <!-- Keploy API Fellowship -->
+                <div class="bg-white dark:bg-slate-900/60 p-6 rounded-2xl border border-slate-200/50 dark:border-slate-800/50 flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-amber-500">API Testing</span>
+                        <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1 mb-2">Keploy API Fellow</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed">Highly selective fellow placement (Top 5% Applicants) focused on open-source scaling and high performance mock backend generations.</p>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-400 font-semibold flex items-center gap-1">
+                        <i class="fa-solid fa-circle-check text-amber-500"></i> Open Source contributor
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="py-24 border-t border-slate-200/50 dark:border-slate-900/50 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+                    Leadership & <span class="bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent">Campus Impact</span>
+                </h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg">
+                    Cultivating supportive student circles and organizing technical ecosystems on and off-campus.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div class="bg-white dark:bg-slate-900/65 p-8 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 hover:border-brand-500/40 dark:hover:border-brand-500/40 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center text-accent-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-earth-africa"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Co-Founder & President</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                        Established the <b>Ethiopian & Eritrean Students Association (EESA)</b> @ Williams College. Lead an executive committee driving programming and cultural resources for over 30 global active members.
+                    </p>
+                    <span class="text-xs bg-brand-500/10 text-brand-500 border border-brand-500/20 font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Campus Founding</span>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white dark:bg-slate-900/65 p-8 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 hover:border-brand-500/40 dark:hover:border-brand-500/40 shadow-sm hover:shadow-xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center text-emerald-500 text-2xl mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-cross"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3">Event Coordinator</h3>
+                    <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                        Coordinating logistics and religious community initiatives for the <b>Williams Orthodox Christian Students Association (WOCSA)</b>, fostering campus dialogue and engagement.
+                    </p>
+                    <span class="text-xs bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 font-semibold px-2.5 py-1 rounded-full uppercase tracking-wider">Community Outreach</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 bg-slate-100/50 dark:bg-slate-900/15 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+                    Technical <span class="bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent">Skills</span>
+                </h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg">
+                    Fullstack capabilities built on rigid backend systems, database performance tuning, and type-safe schema patterns.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Category 1: Languages -->
+                <div class="bg-white dark:bg-slate-900/60 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-code text-brand-500"></i> Languages
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Java & OOP Design</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-brand-500 h-full rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>TypeScript / JS</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-brand-500 h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Python & C++</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-brand-500 h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 2: Backend & Frameworks -->
+                <div class="bg-white dark:bg-slate-900/60 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-cubes text-accent-500"></i> Backend & Frameworks
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>REST APIs & Node/Express</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-accent-500 h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>React & React Native</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-accent-500 h-full rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Socket.io / Real-Time</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-accent-500 h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 3: Databases & Architecture -->
+                <div class="bg-white dark:bg-slate-900/60 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-database text-emerald-500"></i> Data & Architecture
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>MySQL / PostgreSQL</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>MongoDB & NoSQL</span>
+                                <span>88%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 h-full rounded-full" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Query Optimizations & Indexing</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Category 4: Methodologies -->
+                <div class="bg-white dark:bg-slate-900/60 p-6 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-vial text-amber-500"></i> Tooling & Methods
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Telemetry & Testing</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-amber-500 h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>OOD & Strategy Patterns</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-amber-500 h-full rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-xs font-semibold mb-1">
+                                <span>Git & Linux Command Shells</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden">
+                                <div class="bg-amber-500 h-full rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-header">
-                <span class="section-label">Get in Touch</span>
-                <h2 class="section-title">Let's Create Something Amazing</h2>
-                <p class="contact-subtitle">I'm always interested in hearing about new projects and opportunities.</p>
+    <section id="contact" class="py-24 border-t border-slate-200/50 dark:border-slate-900/50 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">
+                    Get in <span class="bg-gradient-to-r from-brand-500 to-accent-500 bg-clip-text text-transparent">Touch</span>
+                </h2>
+                <p class="text-slate-500 dark:text-slate-400 text-lg">
+                    Have an interesting research project, career inquiry, or backend challenge? Send a message below.
+                </p>
             </div>
 
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item glass-effect">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:diressabebe23@gmail.com">diressabebe23@gmail.com</a>
-                        </div>
-                    </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-6xl mx-auto">
+                <!-- Left Connection Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-white dark:bg-slate-900/65 p-8 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm space-y-6">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2">My Coordinates</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+                            Feel free to reach out via Williams College email or connect on LinkedIn. Open to technical collaborations, backend projects, and network chats.
+                        </p>
 
-                    <div class="contact-item glass-effect">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>San Francisco, CA</p>
+                        <!-- Contact channels list -->
+                        <div class="space-y-4 pt-4">
+                            <!-- Email -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-brand-500/10 text-brand-500 flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 font-medium">Williams Email</span>
+                                    <a href="mailto:daa3@williams.edu" class="block text-sm font-semibold hover:text-brand-500 transition-colors">daa3@williams.edu</a>
+                                </div>
+                            </div>
+                            <!-- Personal Email -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-solid fa-envelope-open"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 font-medium">Personal Email</span>
+                                    <a href="mailto:diressabebe23@gmail.com" class="block text-sm font-semibold hover:text-brand-500 transition-colors">diressabebe23@gmail.com</a>
+                                </div>
+                            </div>
+                            <!-- Github -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-brands fa-github"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 font-medium">GitHub Projects</span>
+                                    <a href="http://www.github.com/Dierzeethiopia" target="_blank" class="block text-sm font-semibold hover:text-brand-500 transition-colors">github.com/Dierzeethiopia</a>
+                                </div>
+                            </div>
+                            <!-- Linkedin -->
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-lg shrink-0">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 font-medium">Linkeden Life</span>
+                                    <a href="https://www.linkedin.com/in/dires-a-abatieneh/" target="_blank" class="block text-sm font-semibold hover:text-brand-500 transition-colors">linkedin/dires-a-abatieneh</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="social-links-contact">
-                    <a href="https://github.com/Dierzeethiopia" class="social-link-contact glass-effect">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/dires-a-abatieneh/" class="social-link-contact glass-effect">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
+                <!-- Right Form Column -->
+                <div class="lg:col-span-7">
+                    <form id="contactForm" class="bg-white dark:bg-slate-900/65 p-8 rounded-3xl border border-slate-200/50 dark:border-slate-800/50 shadow-sm space-y-5">
+                        <div role="alert" class="flex items-start gap-3 rounded-xl border border-amber-300/60 bg-amber-50 px-4 py-3 text-amber-900 dark:border-amber-400/20 dark:bg-amber-500/10 dark:text-amber-200">
+                            <i class="fa-solid fa-circle-info mt-0.5 text-amber-500"></i>
+                            <p class="text-sm leading-relaxed"><span class="font-semibold">This messaging form is currently unavailable.</span> Please use the email or LinkedIn contact options instead.</p>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="formName" class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wide">Full Name</label>
+                                <input type="text" id="formName" required placeholder="Dires Abatieneh" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-brand-500 dark:focus:border-brand-500 focus:outline-none transition-colors text-sm text-slate-900 dark:text-white">
+                            </div>
+                            <div>
+                                <label for="formEmail" class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wide">Email Address</label>
+                                <input type="email" id="formEmail" required placeholder="contact@williams.edu" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-brand-500 dark:focus:border-brand-500 focus:outline-none transition-colors text-sm text-slate-900 dark:text-white">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="formSubject" class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wide">Subject</label>
+                            <input type="text" id="formSubject" required placeholder="Opportunity / Project Collaboration" class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-brand-500 dark:focus:border-brand-500 focus:outline-none transition-colors text-sm text-slate-900 dark:text-white">
+                        </div>
+
+                        <div>
+                            <label for="formMessage" class="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-2 uppercase tracking-wide">Your Message</label>
+                            <textarea id="formMessage" required rows="5" placeholder="Hi Dires, let's collaborate on distributed systems development..." class="w-full px-4 py-3 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 focus:border-brand-500 dark:focus:border-brand-500 focus:outline-none transition-colors text-sm text-slate-900 dark:text-white resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 px-6 rounded-xl font-medium bg-gradient-to-r from-brand-500 to-accent-500 text-white shadow-lg shadow-brand-500/20 hover:shadow-brand-500/35 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+                            <span>Send Message</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2026 Dires Abatieneh. Crafted with <span style="color: #ff6b9d;">♥</span> and code.</p>
+    <!-- Footer Section -->
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200/50 dark:border-slate-900/50 py-12 relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-slate-400 text-sm">
+                &copy; 2026 Dires Abatieneh. All rights reserved. Designed with elegance.
+            </div>
+            <!-- Quick links -->
+            <div class="flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500 dark:text-slate-400">
+                <a href="#home" class="hover:text-brand-500 transition-colors">Home</a>
+                <a href="#education" class="hover:text-brand-500 transition-colors">Education</a>
+                <a href="#experience" class="hover:text-brand-500 transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-brand-500 transition-colors">Projects</a>
+                <a href="#fellowships" class="hover:text-brand-500 transition-colors">Fellowships</a>
+                <a href="#leadership" class="hover:text-brand-500 transition-colors">Leadership</a>
+                <a href="#skills" class="hover:text-brand-500 transition-colors">Skills</a>
+                <a href="#contact" class="hover:text-brand-500 transition-colors">Contact</a>
+            </div>
+        </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- Toast notification element (Custom replacement for alert) -->
+    <div id="toastNotification" class="fixed bottom-6 right-6 z-[100] transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 bg-slate-900 dark:bg-slate-800 text-white px-5 py-4 rounded-2xl shadow-2xl border border-slate-700/50">
+        <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <p class="font-bold text-sm" id="toastTitle">Success!</p>
+            <p class="text-xs text-slate-300" id="toastText">Your message was sent successfully.</p>
+        </div>
+    </div>
+
+    <!-- Script Operations Section -->
+    <script>
+        // Theme logic state storage initialization
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const themeToggleIcon = document.getElementById('themeToggleIcon');
+        const docHtml = document.documentElement;
+
+        // Load preferred theme color scheme
+        if (localStorage.getItem('theme') === 'light') {
+            docHtml.classList.remove('dark');
+            themeToggleIcon.className = 'fa-solid fa-moon text-lg';
+        } else {
+            docHtml.classList.add('dark');
+            themeToggleIcon.className = 'fa-solid fa-sun text-lg';
+        }
+
+        // Toggle dark and light theme function
+        themeToggleBtn.addEventListener('click', () => {
+            if (docHtml.classList.contains('dark')) {
+                docHtml.classList.remove('dark');
+                themeToggleIcon.className = 'fa-solid fa-moon text-lg';
+                localStorage.setItem('theme', 'light');
+            } else {
+                docHtml.classList.add('dark');
+                themeToggleIcon.className = 'fa-solid fa-sun text-lg';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Mobile responsive menu controls toggle logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenuIcon = document.getElementById('mobileMenuIcon');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenuIcon.className = 'fa-solid fa-bars text-lg';
+            } else {
+                mobileMenuIcon.className = 'fa-solid fa-xmark text-lg';
+            }
+        });
+
+        // Auto close mobile navigation dropdown on select links
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenuIcon.className = 'fa-solid fa-bars text-lg';
+            });
+        });
+
+        // Update header background blur style on scroll
+        const mainHeader = document.getElementById('mainHeader');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                mainHeader.querySelector('nav').classList.add('shadow-md', 'bg-white/90', 'dark:bg-darkBg/90');
+            } else {
+                mainHeader.querySelector('nav').classList.remove('shadow-md', 'bg-white/90', 'dark:bg-darkBg/90');
+            }
+            
+            // Sync current active nav item with high accuracy
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+            
+            let currentSec = '';
+            sections.forEach(sec => {
+                const secTop = sec.offsetTop;
+                if (window.scrollY >= secTop - 120) {
+                    currentSec = sec.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-brand-500', 'bg-brand-500/5', 'dark:bg-brand-500/10');
+                link.classList.add('text-slate-600', 'dark:text-slate-300');
+                if (link.getAttribute('href') === `#${currentSec}`) {
+                    link.classList.add('text-brand-500', 'bg-brand-500/5', 'dark:bg-brand-500/10');
+                    link.classList.remove('text-slate-600', 'dark:text-slate-300');
+                }
+            });
+
+            mobileLinks.forEach(link => {
+                link.classList.remove('bg-brand-500/10', 'text-brand-500');
+                link.classList.add('text-slate-600', 'dark:text-slate-300');
+                if (link.getAttribute('href') === `#${currentSec}`) {
+                    link.classList.add('bg-brand-500/10', 'text-brand-500');
+                    link.classList.remove('text-slate-600', 'dark:text-slate-300');
+                }
+            });
+        });
+
+        // Filter projects grid dynamically based on click choice
+        function filterProjects(cat) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.project-filter-btn');
+
+            // Reset active styles for project choice buttons
+            buttons.forEach(btn => {
+                btn.className = "project-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium transition-all bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-brand-500 dark:hover:border-brand-500 hover:text-brand-500 dark:hover:text-brand-500";
+            });
+
+            // Set current filter tab style
+            event.currentTarget.className = "project-filter-btn px-5 py-2.5 rounded-xl text-sm font-medium transition-all bg-brand-500 text-white shadow-md shadow-brand-500/15";
+
+            // Filter specific portfolio cards
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (cat === 'all' || cardCat === cat) {
+                    card.style.display = 'flex';
+                    setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 10);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(() => { card.style.display = 'none'; }, 200);
+                }
+            });
+        }
+
+        // Configurable canvas particle background field animations
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const maxParticles = 65;
+
+        function setCanvasDimensions() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        setCanvasDimensions();
+        window.addEventListener('resize', setCanvasDimensions);
+
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 1;
+                this.speedX = Math.random() * 0.4 - 0.2;
+                this.speedY = Math.random() * 0.4 - 0.2;
+                this.alpha = Math.random() * 0.5 + 0.1;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+
+                if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
+                    this.reset();
+                }
+            }
+            draw() {
+                const isDark = document.documentElement.classList.contains('dark');
+                ctx.fillStyle = isDark ? `rgba(14, 165, 233, ${this.alpha})` : `rgba(14, 165, 233, ${this.alpha * 0.5})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            for (let i = 0; i < maxParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+        initParticles();
+
+        function animateParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            requestAnimationFrame(animateParticles);
+        }
+        animateParticles();
+
+        // Modern custom dynamic typing animation script
+        const stringsToType = ["Scalable Backend Systems", "Distributed Infrastructure", "Full-Stack Web Products", "Dynamic Student Groups"];
+        let stringIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingTextEl = document.getElementById('typingText');
+
+        function handleTypewriting() {
+            const currentString = stringsToType[stringIndex];
+            if (isDeleting) {
+                typingTextEl.textContent = currentString.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingTextEl.textContent = currentString.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typingSpeed = isDeleting ? 40 : 100;
+
+            if (!isDeleting && charIndex === currentString.length) {
+                typingSpeed = 1600; // Pause at full word
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                stringIndex = (stringIndex + 1) % stringsToType.length;
+                typingSpeed = 400; // Small delay before next word
+            }
+
+            setTimeout(handleTypewriting, typingSpeed);
+        }
+        setTimeout(handleTypewriting, 800);
+
+        // Validate contact forms and launch elegant Toast notification instead of alert()
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toastNotification');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Grab form information inputs
+            const nameValue = document.getElementById('formName').value;
+            const emailValue = document.getElementById('formEmail').value;
+
+            // Trigger Custom feedback dialog toast
+            document.getElementById('toastTitle').innerText = "Thanks, " + nameValue + "!";
+            document.getElementById('toastText').innerText = "Message recorded! Dires will reply to: " + emailValue;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            toast.classList.add('translate-y-0', 'opacity-100');
+
+            // Reset client inputs
+            contactForm.reset();
+
+            // Auto close toast modal overlay
+            setTimeout(() => {
+                toast.classList.remove('translate-y-0', 'opacity-100');
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 6000);
+        });
+    </script>
 </body>
 </html>
